@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +32,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    ImageButton Menu;
     private AppBarConfiguration mAppBarConfiguration;
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -42,13 +44,20 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-        findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
+        Menu = findViewById(R.id.menu);
+        Menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 drawer.openDrawer(Gravity.RIGHT);
             }
         });
+
+//        findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                drawer.openDrawer(Gravity.RIGHT);
+//            }
+//        });
 
 
     }
