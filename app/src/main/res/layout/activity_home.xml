@@ -34,6 +34,7 @@
     </androidx.drawerlayout.widget.DrawerLayout>
 
     <LinearLayout
+        android:id="@+id/linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#3226AB"
@@ -69,6 +70,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linear_layout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#3226AB"
@@ -84,5 +86,112 @@
             android:textColor="@color/white"/>
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/bsmrau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bsmrau"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/mujibborso"
+        app:layout_constraintBottom_toTopOf="@id/directory"/>
+
+    <ImageView
+        android:id="@+id/mujibborso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mujibborso"
+        app:layout_constraintBottom_toBottomOf="@+id/bsmrau"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bsmrau"
+        app:layout_constraintTop_toTopOf="@id/bsmrau" />
+
+    <ImageButton
+        android:id="@+id/directory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedbutton"
+        android:src="@drawable/dir"
+        app:layout_constraintTop_toBottomOf="@+id/bsmrau"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/calander"
+        app:layout_constraintBottom_toTopOf="@id/notice"/>
+
+    <ImageButton
+        android:id="@+id/calander"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundedbutton"
+        android:src="@drawable/cal"
+        app:layout_constraintBottom_toBottomOf="@+id/directory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/directory"
+        app:layout_constraintTop_toTopOf="@+id/directory" />
+
+    <ImageButton
+        android:id="@+id/notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/notice_icon"
+        android:background="#EED5D5"
+        app:layout_constraintTop_toBottomOf="@id/directory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/event"
+        app:layout_constraintBottom_toTopOf="@id/video"/>
+
+    <ImageButton
+        android:id="@+id/event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#EED5D5"
+        android:src="@drawable/event_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/notice"
+        app:layout_constraintEnd_toStartOf="@id/news"
+        app:layout_constraintStart_toEndOf="@id/notice"
+        app:layout_constraintTop_toTopOf="@id/notice" />
+
+    <ImageButton
+        android:id="@+id/news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background=""
+        android:src="@drawable/news_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/event"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/event"
+        app:layout_constraintTop_toTopOf="@id/event" />
+
+    <ImageButton
+        android:id="@+id/gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFE6CD"
+        android:src="@drawable/photogallery_icon"
+        app:layout_constraintBottom_toTopOf="@+id/linear_layout2"
+        app:layout_constraintEnd_toStartOf="@id/video"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notice" />
+
+    <ImageButton
+        android:id="@+id/video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFE6CD"
+        android:src="@drawable/video_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/gallery"
+        app:layout_constraintEnd_toStartOf="@id/bus"
+        app:layout_constraintStart_toEndOf="@id/gallery"
+        app:layout_constraintTop_toTopOf="@id/gallery" />
+
+    <ImageButton
+        android:id="@+id/bus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFE6CD"
+        android:src="@drawable/studentbus_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/video"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/video"
+        app:layout_constraintTop_toTopOf="@id/gallery" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
