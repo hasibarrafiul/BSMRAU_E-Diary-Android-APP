@@ -58,8 +58,8 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
 //                drawer.openDrawer(Gravity.RIGHT);
 //            }
 //        });
-
-
+        ImageButton directory = findViewById(R.id.directory);
+        directory.setOnClickListener(view -> fetchDirectory());
     }
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -67,6 +67,10 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
+    }
+    public void fetchDirectory(){
+        Intent intent = new Intent(this, directory.class);
+        startActivity(intent);
     }
 
 
