@@ -3,12 +3,8 @@ package com.tostechllc.bsmrau_e_diary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,39 +13,20 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
-public class directory extends AppCompatActivity {
+public class faculty extends AppCompatActivity {
 
-    public static final String FETCH_DIRECTORY = "https://tostechllc.com/android/getDirectory.php";
-    ArrayList<postedDirectory> arrayList;
-    Button faculty, officials;
-    ListView directoryListView;
-    customDirectoryAdapter customDirectoryAdapter;
+    public static final String FETCH_FACULTY = "https://tostechllc.com/android/getFaculty.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_directory);
-        directoryListView = findViewById(R.id.directoryListView);
+        setContentView(R.layout.activity_faculty);
 
-        arrayList = new ArrayList<>();
-
-        faculty = findViewById(R.id.faculty);
-        faculty.setOnClickListener(view -> facultylistShow());
-        officials = findViewById(R.id.official);
-        officials.setOnClickListener(view -> officialslistShow());
-
-        fetchDirectory();
+        fetchFaculty();
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        fetchDirectory();
-    }
-
-    public void fetchDirectory(){
+    public void fetchFaculty(){
         @SuppressLint("StaticFieldLeak")
         class dbManager extends AsyncTask<String,Void,String>
         {
@@ -60,19 +37,25 @@ public class directory extends AppCompatActivity {
 
                     for(int i =0;i<ja.length();i++){
                         jo=ja.getJSONObject(i);
-                        int directoryid = jo.getInt("id");
-                        String catagory = jo.getString("catagory");
+                        int facultyid = jo.getInt("id");
+                        String name = jo.getString("name");
+                        String designation = jo.getString("designation");
                         String department = jo.getString("department");
+                        int mobilenumber = jo.getInt("mobilenumber");
+                        String email = jo.getString("email");
+                        int officenumber = jo.getInt("officenumber");
+                        String image = jo.getString("image");
+                        int status = jo.getInt("status");
 
-                        System.out.println(directoryid+" "+catagory+" "+department);
+                        System.out.println(facultyid+" "+name+" "+department);
 
-                        postedDirectory postedDirectorysingle = new postedDirectory(directoryid,catagory,department);
+                        //postedDirectory postedDirectorysingle = new postedDirectory(directoryid,catagory,department);
 
                         //System.out.println("directory: "+postedDirectorysingle.id);
 
-                        arrayList.add(postedDirectorysingle);
+                        //arrayList.add(postedDirectorysingle);
 
-                        loadDatainList();
+                        //loadDatainList();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -100,19 +83,6 @@ public class directory extends AppCompatActivity {
             }
         }
         dbManager obj =new dbManager();
-        obj.execute(FETCH_DIRECTORY);
-    }
-    public void loadDatainList(){
-        customDirectoryAdapter = new customDirectoryAdapter(this,arrayList);
-        directoryListView.setAdapter(customDirectoryAdapter);
-        customDirectoryAdapter.notifyDataSetChanged();
-    }
-    public void facultylistShow(){
-        Intent intent = new Intent(this, faculty.class);
-        startActivity(intent);
-    }
-    public void officialslistShow(){
-        Intent intent = new Intent(this, officials.class);
-        startActivity(intent);
+        obj.execute(FETCH_FACULTY);
     }
 }
