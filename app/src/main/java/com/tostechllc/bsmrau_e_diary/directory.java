@@ -33,15 +33,13 @@ public class directory extends AppCompatActivity {
 
         arrayList = new ArrayList<>();
 
-
-        loadDatainList();
+        fetchDirectory();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
         fetchDirectory();
-        loadDatainList();
     }
 
     public void fetchDirectory(){
@@ -65,9 +63,9 @@ public class directory extends AppCompatActivity {
 
                         System.out.println("directory: "+postedDirectorysingle.id);
 
-                        arrayList.add(i,postedDirectorysingle);
+                        arrayList.add(postedDirectorysingle);
 
-                        System.out.println("Fetching in Arraylist: "+arrayList.get(i).id);
+                        loadDatainList();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -99,8 +97,8 @@ public class directory extends AppCompatActivity {
     }
     public void loadDatainList(){
         fetchDirectory();
-        System.out.println("fetching Data");
-        System.out.println(arrayList);
+        System.out.println("fetching Data: ");
+        //System.out.println(arrayList);
         customDirectoryAdapter = new customDirectoryAdapter(this,arrayList);
         directoryListView.setAdapter(customDirectoryAdapter);
         customDirectoryAdapter.notifyDataSetChanged();

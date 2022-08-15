@@ -45,13 +45,13 @@ public class customDirectoryAdapter extends BaseAdapter {
         TextView catagory = rowView.findViewById(R.id.catagory);
         TextView department = rowView.findViewById(R.id.department);
 
-        System.out.println(dirid);
-
         postedDirectory postedDirectory = arrayList.get(position);
 
-        dirid.setText(postedDirectory.getId());
-        catagory.setText(postedDirectory.getCatagory());
-        department.setText(postedDirectory.getDepartment());
+        System.out.println("Custom Adapter"+postedDirectory.getId());
+
+        //dirid.setText(postedDirectory.getId());
+        //catagory.setText(postedDirectory.getCatagory());
+        //department.setText(postedDirectory.getDepartment());
 
         return rowView;
     }
