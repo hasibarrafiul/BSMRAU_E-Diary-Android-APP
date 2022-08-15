@@ -49,7 +49,7 @@ public class directory extends AppCompatActivity {
             protected void onPostExecute(String data){
                 try {
                     JSONArray ja = new JSONArray(data);
-                    JSONObject jo;
+                    JSONObject jo = null;
 
                     for(int i =0;i<ja.length();i++){
                         jo=ja.getJSONObject(i);
@@ -61,7 +61,7 @@ public class directory extends AppCompatActivity {
 
                         postedDirectory postedDirectorysingle = new postedDirectory(directoryid,catagory,department);
 
-                        System.out.println("directory: "+postedDirectorysingle.id);
+                        //System.out.println("directory: "+postedDirectorysingle.id);
 
                         arrayList.add(postedDirectorysingle);
 
@@ -96,9 +96,6 @@ public class directory extends AppCompatActivity {
         obj.execute(FETCH_DIRECTORY);
     }
     public void loadDatainList(){
-        fetchDirectory();
-        System.out.println("fetching Data: ");
-        //System.out.println(arrayList);
         customDirectoryAdapter = new customDirectoryAdapter(this,arrayList);
         directoryListView.setAdapter(customDirectoryAdapter);
         customDirectoryAdapter.notifyDataSetChanged();

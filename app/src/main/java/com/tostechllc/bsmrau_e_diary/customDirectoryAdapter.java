@@ -12,8 +12,6 @@ import java.util.ArrayList;
 public class customDirectoryAdapter extends BaseAdapter {
     Context context;
     ArrayList<postedDirectory> arrayList;
-    int id,personid, flag = 1, fromWorker;
-    String category;
     public customDirectoryAdapter(Context context, ArrayList<postedDirectory> arrayList){
         this.context = context;
         this.arrayList = arrayList;
@@ -49,9 +47,9 @@ public class customDirectoryAdapter extends BaseAdapter {
 
         System.out.println("Custom Adapter"+postedDirectory.getId());
 
-        //dirid.setText(postedDirectory.getId());
-        //catagory.setText(postedDirectory.getCatagory());
-        //department.setText(postedDirectory.getDepartment());
+        dirid.setText(String.valueOf(postedDirectory.getId()));
+        catagory.setText(postedDirectory.getCatagory());
+        department.setText(postedDirectory.getDepartment());
 
         return rowView;
     }
