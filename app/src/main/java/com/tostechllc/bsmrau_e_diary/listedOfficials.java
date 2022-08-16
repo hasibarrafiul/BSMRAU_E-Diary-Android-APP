@@ -1,16 +1,16 @@
 package com.tostechllc.bsmrau_e_diary;
 
-public class listedFaculty {
+public class listedOfficials {
     int id;
     String name, department;
 
-    public listedFaculty(int id , String name , String department) {
+    public listedOfficials(int id , String name , String department) {
         this.id = id;
         this.name = name;
         this.department = department;
 
     }
-    public listedFaculty(){}
+    public listedOfficials(){}
 
     public int getId() {
         return id;

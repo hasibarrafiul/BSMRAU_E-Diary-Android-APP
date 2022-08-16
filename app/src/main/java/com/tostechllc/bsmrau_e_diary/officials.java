@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,17 +14,26 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class officials extends AppCompatActivity {
 
     public static final String FETCH_OFFICIALS = "https://tostechllc.com/android/getOfficials.php";
+    ArrayList<listedOfficials> arrayList;
+    ListView officialsListView;
+    com.tostechllc.bsmrau_e_diary.customOfficialsAdapter customOfficialsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_officials);
 
+        officialsListView = findViewById(R.id.officialsListView);
+
+        arrayList = new ArrayList<>();
+
         fetchFaculty();
+        loadDatainList();
     }
     public void fetchFaculty(){
         @SuppressLint("StaticFieldLeak")
@@ -48,13 +58,11 @@ public class officials extends AppCompatActivity {
 
                         System.out.println(officialid+" "+name+" "+department);
 
-                        //postedDirectory postedDirectorysingle = new postedDirectory(directoryid,catagory,department);
+                        listedOfficials listedOfficials = new listedOfficials(officialid,name,department);
 
-                        //System.out.println("directory: "+postedDirectorysingle.id);
+                        arrayList.add(listedOfficials);
 
-                        //arrayList.add(postedDirectorysingle);
-
-                        //loadDatainList();
+                        loadDatainList();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -83,5 +91,10 @@ public class officials extends AppCompatActivity {
         }
         dbManager obj =new dbManager();
         obj.execute(FETCH_OFFICIALS);
+    }
+    public void loadDatainList(){
+        customOfficialsAdapter = new customOfficialsAdapter(this,arrayList);
+        officialsListView.setAdapter(customOfficialsAdapter);
+        customOfficialsAdapter.notifyDataSetChanged();
     }
 }
