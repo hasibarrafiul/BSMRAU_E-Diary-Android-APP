@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,17 +14,25 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class faculty extends AppCompatActivity {
 
     public static final String FETCH_FACULTY = "https://tostechllc.com/android/getFaculty.php";
+    ArrayList<listedFaculty> arrayList;
+    ListView facultyListView;
+    customFacultyAdapter customFacultyAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty);
+        facultyListView = findViewById(R.id.facultyListView);
+
+        arrayList = new ArrayList<>();
 
         fetchFaculty();
+        loadDatainList();
     }
 
     public void fetchFaculty(){
@@ -49,13 +58,11 @@ public class faculty extends AppCompatActivity {
 
                         System.out.println(facultyid+" "+name+" "+department);
 
-                        //postedDirectory postedDirectorysingle = new postedDirectory(directoryid,catagory,department);
+                        listedFaculty listedFaculty = new listedFaculty(facultyid,name,department);
 
-                        //System.out.println("directory: "+postedDirectorysingle.id);
+                        arrayList.add(listedFaculty);
 
-                        //arrayList.add(postedDirectorysingle);
-
-                        //loadDatainList();
+                        loadDatainList();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -84,5 +91,10 @@ public class faculty extends AppCompatActivity {
         }
         dbManager obj =new dbManager();
         obj.execute(FETCH_FACULTY);
+    }
+    public void loadDatainList(){
+        customFacultyAdapter = new customFacultyAdapter(this,arrayList);
+        facultyListView.setAdapter(customFacultyAdapter);
+        customFacultyAdapter.notifyDataSetChanged();
     }
 }

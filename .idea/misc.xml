@@ -4,10 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_directory.xml" value="0.25" />
+        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_faculty.xml" value="0.25" />
         <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_officials.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/directorycustomview.xml" value="0.365625" />
+        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/facultycustomview.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/drawable-v24/roundedbutton2.xml" value="0.283" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/drawable-v24/roundedbutton3.xml" value="0.283" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/drawable/roundedbutton.xml" value="0.283" />
