@@ -1,211 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home">
-
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer_layout"
+    android:background="@color/white"
+    >
+    <TextView
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:openDrawer="start">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="50dp"
-            android:paddingBottom="20dp">
-            <ImageView
-                android:id="@+id/bsmrau"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bsmrau"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/mujibborso"
-                app:layout_constraintBottom_toTopOf="@id/directory"/>
-
-            <ImageView
-                android:id="@+id/mujibborso"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/mujibborso"
-                app:layout_constraintBottom_toBottomOf="@+id/bsmrau"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/bsmrau"
-                app:layout_constraintTop_toTopOf="@id/bsmrau" />
-
-            <ImageButton
-                android:id="@+id/directory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundedbutton"
-                android:src="@drawable/dir"
-                app:layout_constraintTop_toBottomOf="@+id/bsmrau"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/calander"
-                app:layout_constraintBottom_toTopOf="@id/notice"/>
-
-            <ImageButton
-                android:id="@+id/calander"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundedbutton"
-                android:src="@drawable/cal"
-                app:layout_constraintBottom_toBottomOf="@+id/directory"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/directory"
-                app:layout_constraintTop_toTopOf="@+id/directory" />
-
-            <ImageButton
-                android:id="@+id/notice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/notice"
-                android:background="@drawable/roundedbutton2"
-                app:layout_constraintTop_toBottomOf="@id/directory"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/event"
-                app:layout_constraintBottom_toTopOf="@id/video"/>
-
-            <ImageButton
-                android:id="@+id/event"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundedbutton2"
-                android:src="@drawable/events"
-                app:layout_constraintBottom_toBottomOf="@+id/notice"
-                app:layout_constraintEnd_toStartOf="@id/news"
-                app:layout_constraintStart_toEndOf="@id/notice"
-                app:layout_constraintTop_toTopOf="@id/notice" />
-
-            <ImageButton
-                android:id="@+id/news"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundedbutton2"
-                android:src="@drawable/news"
-                app:layout_constraintBottom_toBottomOf="@+id/event"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/event"
-                app:layout_constraintTop_toTopOf="@id/event" />
-
-            <ImageButton
-                android:id="@+id/gallery"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundedbutton3"
-                android:src="@drawable/gallery"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/video"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/notice" />
-
-            <ImageButton
-                android:id="@+id/video"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundedbutton3"
-                android:src="@drawable/video"
-                app:layout_constraintBottom_toBottomOf="@+id/gallery"
-                app:layout_constraintEnd_toStartOf="@id/bus"
-                app:layout_constraintStart_toEndOf="@id/gallery"
-                app:layout_constraintTop_toTopOf="@id/gallery" />
-
-            <ImageButton
-                android:id="@+id/bus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/roundedbutton3"
-                android:src="@drawable/bus"
-                app:layout_constraintBottom_toBottomOf="@+id/video"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/video"
-                app:layout_constraintTop_toTopOf="@id/gallery" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:fitsSystemWindows="true"
-            android:background="#008584">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginTop="30sp">
-                <TextView
-                    android:layout_marginTop="100dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="hello"
-                    />
-            </LinearLayout>
-        </com.google.android.material.navigation.NavigationView>
-    </androidx.drawerlayout.widget.DrawerLayout>
-
-    <LinearLayout
-        android:id="@+id/linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#3226AB"
-        android:orientation="horizontal"
-        android:paddingTop="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="BSMRAU E-Diary"
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/menu"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            android:background="#3226AB"
-            android:src="@drawable/menu"
-            android:text="menu" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="10"
-            android:gravity="center"
-            android:paddingStart="-30dp"
-            android:text="BSMRAU E-Diary"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linear_layout2"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/logo_bsmrau"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#3226AB"
+        android:src="@drawable/bsmrau"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_directory"
+        app:layout_constraintStart_toStartOf="@id/btn_directory"
+        app:layout_constraintEnd_toEndOf="@id/btn_directory"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <ImageView
+        android:id="@+id/logo_mujib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/mujibborso"
+        app:layout_constraintBottom_toBottomOf="@+id/logo_bsmrau"
+        app:layout_constraintTop_toTopOf="@id/logo_bsmrau"
+        app:layout_constraintStart_toStartOf="@id/btn_calender"
+        app:layout_constraintEnd_toEndOf="@id/btn_calender"
+        />
+
+    <Button
+        android:id="@+id/btn_directory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_10dp_blue"
+        app:backgroundTint="@null"
+        android:padding="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="4dp"
+        android:text="Directory"
+        android:drawableTop="@drawable/directory64px"
+        app:layout_constraintTop_toBottomOf="@id/logo_bsmrau"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintEnd_toStartOf="@id/btn_calender"
+        />
+
+    <Button
+        android:id="@+id/btn_calender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_10dp_blue"
+        app:backgroundTint="@null"
+        android:padding="15dp"
+        android:text="Calender"
+        android:drawableTop="@drawable/calendar64px"
+        app:layout_constraintEnd_toEndOf="@id/tv_title"
+        app:layout_constraintStart_toEndOf="@id/btn_directory"
+        app:layout_constraintTop_toBottomOf="@id/logo_bsmrau"
+        />
+
+    <Button
+        android:id="@+id/btn_notice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_10dp_blue"
+        app:backgroundTint="@null"
+        android:padding="15dp"
+        android:text="Notice"
+        android:drawableTop="@drawable/notice64px"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_directory"
+        app:layout_constraintStart_toStartOf="@id/btn_directory"
+        app:layout_constraintEnd_toStartOf="@id/btn_event"
+        />
+
+    <Button
+        android:id="@+id/btn_event"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/rounded_10dp_blue"
+        app:backgroundTint="@null"
+        android:padding="15dp"
+        android:text="Events"
+        android:drawableTop="@drawable/event64px"
+        app:layout_constraintEnd_toEndOf="@id/btn_calender"
+        app:layout_constraintStart_toEndOf="@+id/btn_notice"
+        app:layout_constraintTop_toBottomOf="@id/btn_calender"
+        />
+
+    <Button
+        android:id="@+id/btn_news"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_10dp_blue"
+        app:backgroundTint="@null"
+        android:padding="15dp"
+        android:text="News"
+        android:drawableTop="@drawable/news64px"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_notice"
+        app:layout_constraintStart_toStartOf="@id/btn_directory"
+        app:layout_constraintEnd_toStartOf="@id/btn_video"
+        />
+
+    <Button
+        android:id="@+id/btn_video"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/rounded_10dp_blue"
+        app:backgroundTint="@null"
+        android:padding="15dp"
+        android:text="Video"
+        android:drawableTop="@drawable/video64px"
+        app:layout_constraintEnd_toEndOf="@id/btn_calender"
+        app:layout_constraintStart_toEndOf="@+id/btn_news"
+        app:layout_constraintTop_toBottomOf="@id/btn_notice"
+        />
+
+    <TextView
+        android:id="@+id/tv_developer"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="Developed by tosfast.com"
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:gravity="center">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Developed by tosfast.com"
-            android:padding="15dp"
-            android:textColor="@color/white"/>
-    </LinearLayout>
-
-
-
-
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
