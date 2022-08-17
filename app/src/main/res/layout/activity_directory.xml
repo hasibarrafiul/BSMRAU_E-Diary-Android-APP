@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -23,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_faculty"
+        android:id="@+id/faculty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_10dp_blue"
@@ -37,7 +38,7 @@
         app:layout_constraintEnd_toStartOf="@id/btn_officials"
         />
     <Button
-        android:id="@+id/btn_officials"
+        android:id="@+id/official"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_10dp_blue"
@@ -51,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
     <ListView
-        android:id="@+id/faculty_Officials_listView"
+        android:id="@+id/directoryListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="12dp"
