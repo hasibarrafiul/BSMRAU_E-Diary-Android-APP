@@ -35,9 +35,9 @@ public class directory extends AppCompatActivity {
 
         arrayList = new ArrayList<>();
 
-        faculty = findViewById(R.id.faculty);
+        faculty = findViewById(R.id.btn_faculty);
         faculty.setOnClickListener(view -> facultylistShow());
-        officials = findViewById(R.id.official);
+        officials = findViewById(R.id.btn_official);
         officials.setOnClickListener(view -> officialslistShow());
 
         fetchDirectory();

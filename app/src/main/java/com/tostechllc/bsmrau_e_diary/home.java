@@ -1,7 +1,19 @@
 package com.tostechllc.bsmrau_e_diary;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 
 public class home extends AppCompatActivity  {
@@ -10,17 +22,19 @@ public class home extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        //DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        //NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        //navigationView.setNavigationItemSelectedListener(this);
 
-        Menu = findViewById(R.id.menu);
+/*        Menu = findViewById(R.id.menu);
         Menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 drawer.openDrawer(Gravity.RIGHT);
             }
         });
+*/
+
 
 //        findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -28,16 +42,14 @@ public class home extends AppCompatActivity  {
 //                drawer.openDrawer(Gravity.RIGHT);
 //            }
 //        });
-        ImageButton directory = findViewById(R.id.directory);
+        Button directory = findViewById(R.id.btn_directory);
         directory.setOnClickListener(view -> fetchDirectory());
     }
-    @Override
+    //@Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        //DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        //drawer.closeDrawer(GravityCompat.START);
         return true;
-
-
     }
     public void fetchDirectory(){
         Intent intent = new Intent(this, directory.class);
