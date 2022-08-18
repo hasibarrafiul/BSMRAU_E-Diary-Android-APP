@@ -44,6 +44,10 @@ public class home extends AppCompatActivity  {
 //        });
         Button directory = findViewById(R.id.btn_directory);
         directory.setOnClickListener(view -> fetchDirectory());
+
+        Button calender = findViewById(R.id.btn_calender);
+        calender.setOnClickListener(view -> fetchCalender());
+
     }
     //@Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -53,6 +57,10 @@ public class home extends AppCompatActivity  {
     }
     public void fetchDirectory(){
         Intent intent = new Intent(this, directory.class);
+        startActivity(intent);
+    }
+    public void fetchCalender(){
+        Intent intent = new Intent(this, CalenderView.class);
         startActivity(intent);
     }
 

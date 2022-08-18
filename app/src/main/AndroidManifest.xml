@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
         <activity
+            android:name=".CalenderView"
+            android:exported="false" />
+        <activity
             android:name=".faculty"
             android:exported="false" />
         <activity
