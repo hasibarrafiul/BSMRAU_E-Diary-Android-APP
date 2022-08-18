@@ -1,6 +1,7 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -49,7 +50,9 @@ public class directory extends AppCompatActivity {
 
         faculty = findViewById(R.id.btn_faculty);
         faculty.setOnClickListener(view -> facultylistShow());
+
         officials = findViewById(R.id.btn_official);
+        officials.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_dark_blue));
         officials.setOnClickListener(view -> officialslistShow());
 
     }
@@ -119,6 +122,8 @@ public class directory extends AppCompatActivity {
     }
     public void facultylistShow(){
         facultyListView = findViewById(R.id.directoryListView);
+        faculty.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_blue));
+        officials.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_dark_blue));
         fetchFaculty();
         emptyFaculty();
         loadFacultyDatainList();
@@ -126,6 +131,8 @@ public class directory extends AppCompatActivity {
 
     public void officialslistShow(){
         officialsListView = findViewById(R.id.directoryListView);
+        officials.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_blue));
+        faculty.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_dark_blue));
         fetchOfficials();
         emptyOfficials();
         loadOfficialsDatainList();

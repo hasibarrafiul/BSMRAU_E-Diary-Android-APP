@@ -42,22 +42,26 @@ public class customOfficialsAdapter extends BaseAdapter {
 
         View rowView = inflater.inflate(R.layout.officialscustomview, parent, false);
 
-        TextView offid = rowView.findViewById(R.id.offid);
-        TextView offname = rowView.findViewById(R.id.offname);
-        TextView offdepartment = rowView.findViewById(R.id.offdepartment);
-        ImageView officialsImage = rowView.findViewById(R.id.officialsImage);
+        TextView name = rowView.findViewById(R.id.tv_username_officials);
+        TextView work = rowView.findViewById(R.id.tv_work_officials);
+        TextView phone = rowView.findViewById(R.id.tv_phone_officials);
+        TextView email = rowView.findViewById(R.id.tv_email_officials);
+        TextView officePhone = rowView.findViewById(R.id.tv_officePhone_officials);
+        ImageView image = rowView.findViewById(R.id.officials_image);
 
         listedOfficials listedOfficials = arrayList.get(position);
 
         System.out.println("Custom Adapter"+listedOfficials.getId());
 
-        offid.setText(String.valueOf(listedOfficials.getId()));
-        offname.setText(listedOfficials.getName());
-        offdepartment.setText(listedOfficials.getDepartment());
+        name.setText(String.valueOf(listedOfficials.getName()));
+        work.setText(String.valueOf(listedOfficials.getDesignation()));
+        phone.setText(String.valueOf(listedOfficials.getMobilenumber()));
+        email.setText(String.valueOf(listedOfficials.getEmail()));
+        officePhone.setText(String.valueOf(listedOfficials.getOfficenumber()));
 
-        String imagepath = "https://tostechllc.com/bsmrau/facultyimage/"+listedOfficials.getImage();
+        String imagePath = "https://tostechllc.com/bsmrau/facultyimage/"+listedOfficials.getImage();
 
-        Picasso.get().load(imagepath).resize(100,100).into(officialsImage);
+        Picasso.get().load(imagePath).resize(100,100).into(image);
 
         return rowView;
     }
