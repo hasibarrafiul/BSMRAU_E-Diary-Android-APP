@@ -27,26 +27,36 @@ public class directory extends AppCompatActivity {
     ListView directoryListView;
     customDirectoryAdapter customDirectoryAdapter;
 
+    public static final String FETCH_FACULTY = "https://tostechllc.com/android/getFaculty.php";
+    ArrayList<listedFaculty> arrayListFaculty;
+    ListView facultyListView;
+    customFacultyAdapter customFacultyAdapter;
+
+    public static final String FETCH_OFFICIALS = "https://tostechllc.com/android/getOfficials.php";
+    ArrayList<listedOfficials> arrayListOfficials;
+    ListView officialsListView;
+    com.tostechllc.bsmrau_e_diary.customOfficialsAdapter customOfficialsAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_directory);
-        directoryListView = findViewById(R.id.directoryListView);
+        //directoryListView = findViewById(R.id.directoryListView);
 
         arrayList = new ArrayList<>();
+        arrayListFaculty = new ArrayList<>();
+        arrayListOfficials = new ArrayList<>();
 
         faculty = findViewById(R.id.btn_faculty);
         faculty.setOnClickListener(view -> facultylistShow());
         officials = findViewById(R.id.btn_official);
         officials.setOnClickListener(view -> officialslistShow());
 
-        fetchDirectory();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        fetchDirectory();
     }
 
     public void fetchDirectory(){
@@ -108,11 +118,138 @@ public class directory extends AppCompatActivity {
         customDirectoryAdapter.notifyDataSetChanged();
     }
     public void facultylistShow(){
-        Intent intent = new Intent(this, faculty.class);
-        startActivity(intent);
+        facultyListView = findViewById(R.id.directoryListView);
+        fetchFaculty();
+        loadFacultyDatainList();
     }
     public void officialslistShow(){
-        Intent intent = new Intent(this, officials.class);
-        startActivity(intent);
+        officialsListView = findViewById(R.id.directoryListView);
+        fetchOfficials();
+        loadOfficialsDatainList();
+    }
+
+    public void fetchFaculty(){
+        @SuppressLint("StaticFieldLeak")
+        class dbManager extends AsyncTask<String,Void,String>
+        {
+            protected void onPostExecute(String data){
+                try {
+                    JSONArray ja = new JSONArray(data);
+                    JSONObject jo = null;
+
+                    for(int i =0;i<ja.length();i++){
+                        jo=ja.getJSONObject(i);
+                        int facultyid = jo.getInt("id");
+                        String name = jo.getString("name");
+                        String designation = jo.getString("designation");
+                        String department = jo.getString("department");
+                        int mobilenumber = jo.getInt("mobilenumber");
+                        String email = jo.getString("email");
+                        int officenumber = jo.getInt("officenumber");
+                        String image = jo.getString("image");
+                        int status = jo.getInt("status");
+
+                        System.out.println(facultyid+" "+name+" "+department);
+
+                        listedFaculty listedFaculty = new listedFaculty(facultyid,mobilenumber,officenumber,status,name,designation,department,email,image);
+
+                        arrayListFaculty.add(listedFaculty);
+
+                        loadFacultyDatainList();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            protected String doInBackground(String... strings) {
+                try {
+                    URL url = new URL(strings[0]);
+                    HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    StringBuffer data = new StringBuffer();
+                    String line;
+
+                    while((line=br.readLine())!=null){
+                        data.append(line+"\n");
+                    }
+                    br.close();
+                    return data.toString();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        dbManager obj =new dbManager();
+        obj.execute(FETCH_FACULTY);
+    }
+    public void loadFacultyDatainList(){
+        customFacultyAdapter = new customFacultyAdapter(this,arrayListFaculty);
+        facultyListView.setAdapter(customFacultyAdapter);
+        customFacultyAdapter.notifyDataSetChanged();
+    }
+    public void fetchOfficials(){
+        @SuppressLint("StaticFieldLeak")
+        class dbManager extends AsyncTask<String,Void,String>
+        {
+            protected void onPostExecute(String data){
+                try {
+                    JSONArray ja = new JSONArray(data);
+                    JSONObject jo = null;
+
+                    for(int i =0;i<ja.length();i++){
+                        jo=ja.getJSONObject(i);
+                        int officialid = jo.getInt("id");
+                        String name = jo.getString("name");
+                        String designation = jo.getString("designation");
+                        String department = jo.getString("department");
+                        int mobilenumber = jo.getInt("mobilenumber");
+                        String email = jo.getString("email");
+                        int officenumber = jo.getInt("officenumber");
+                        String image = jo.getString("image");
+                        int status = jo.getInt("status");
+
+                        System.out.println(officialid+" "+name+" "+department);
+
+                        listedOfficials listedOfficials = new listedOfficials(officialid,mobilenumber,officenumber,status,name,designation,department,email,image);
+
+                        arrayListOfficials.add(listedOfficials);
+
+                        loadOfficialsDatainList();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            protected String doInBackground(String... strings) {
+                try {
+                    URL url = new URL(strings[0]);
+                    HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    StringBuffer data = new StringBuffer();
+                    String line;
+
+                    while((line=br.readLine())!=null){
+                        data.append(line+"\n");
+                    }
+                    br.close();
+                    return data.toString();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        dbManager obj =new dbManager();
+        obj.execute(FETCH_OFFICIALS);
+    }
+    public void loadOfficialsDatainList(){
+        customOfficialsAdapter = new customOfficialsAdapter(this,arrayListOfficials);
+        officialsListView.setAdapter(customOfficialsAdapter);
+        customOfficialsAdapter.notifyDataSetChanged();
     }
 }
