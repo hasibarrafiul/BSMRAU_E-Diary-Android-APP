@@ -11,26 +11,25 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="noticeid"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/noticeimage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <ImageView
         android:id="@+id/noticeimage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="noticeimage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noticeid" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/noticeheading"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="noticeheading"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/noticeimage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noticeimage" />
+        app:layout_constraintTop_toBottomOf="@+id/noticeid" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

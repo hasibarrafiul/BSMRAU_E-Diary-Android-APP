@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -42,6 +45,7 @@ public class customFacultyAdapter extends BaseAdapter {
         TextView facid = rowView.findViewById(R.id.facid);
         TextView facname = rowView.findViewById(R.id.facname);
         TextView facdepartment = rowView.findViewById(R.id.facdepartment);
+        ImageView facultyimage = rowView.findViewById(R.id.facultyImage);
 
         listedFaculty listedFaculty = arrayList.get(position);
 
@@ -50,6 +54,9 @@ public class customFacultyAdapter extends BaseAdapter {
         facid.setText(String.valueOf(listedFaculty.getId()));
         facname.setText(listedFaculty.getName());
         facdepartment.setText(listedFaculty.getDepartment());
+        String imagepath = "https://tostechllc.com/bsmrau/facultyimage/"+listedFaculty.getImage();
+
+        Picasso.get().load(imagepath).resize(100,100).into(facultyimage);
 
         return rowView;
     }

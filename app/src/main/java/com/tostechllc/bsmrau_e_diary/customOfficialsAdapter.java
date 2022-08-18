@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -42,6 +45,7 @@ public class customOfficialsAdapter extends BaseAdapter {
         TextView offid = rowView.findViewById(R.id.offid);
         TextView offname = rowView.findViewById(R.id.offname);
         TextView offdepartment = rowView.findViewById(R.id.offdepartment);
+        ImageView officialsImage = rowView.findViewById(R.id.officialsImage);
 
         listedOfficials listedOfficials = arrayList.get(position);
 
@@ -50,6 +54,10 @@ public class customOfficialsAdapter extends BaseAdapter {
         offid.setText(String.valueOf(listedOfficials.getId()));
         offname.setText(listedOfficials.getName());
         offdepartment.setText(listedOfficials.getDepartment());
+
+        String imagepath = "https://tostechllc.com/bsmrau/facultyimage/"+listedOfficials.getImage();
+
+        Picasso.get().load(imagepath).resize(100,100).into(officialsImage);
 
         return rowView;
     }
