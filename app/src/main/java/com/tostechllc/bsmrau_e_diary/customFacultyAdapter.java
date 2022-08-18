@@ -42,21 +42,24 @@ public class customFacultyAdapter extends BaseAdapter {
 
         View rowView = inflater.inflate(R.layout.facultycustomview, parent, false);
 
-        TextView facid = rowView.findViewById(R.id.facid);
-        TextView facname = rowView.findViewById(R.id.facname);
-        TextView facdepartment = rowView.findViewById(R.id.facdepartment);
-        ImageView facultyimage = rowView.findViewById(R.id.facultyImage);
+        TextView name = rowView.findViewById(R.id.tv_username);
+        TextView work = rowView.findViewById(R.id.tv_work);
+        TextView phone = rowView.findViewById(R.id.tv_phone);
+        TextView email = rowView.findViewById(R.id.tv_email);
+        TextView officePhone = rowView.findViewById(R.id.tv_officePhone);
+        ImageView image = rowView.findViewById(R.id.faculty_image);
 
         listedFaculty listedFaculty = arrayList.get(position);
 
-        System.out.println("Custom Adapter"+listedFaculty.getId());
+        name.setText(String.valueOf(listedFaculty.getName()));
+        work.setText(String.valueOf(listedFaculty.getDesignation()));
+        phone.setText(String.valueOf(listedFaculty.getMobilenumber()));
+        email.setText(String.valueOf(listedFaculty.getEmail()));
+        officePhone.setText(String.valueOf(listedFaculty.getOfficenumber()));
 
-        facid.setText(String.valueOf(listedFaculty.getId()));
-        facname.setText(listedFaculty.getName());
-        facdepartment.setText(listedFaculty.getDepartment());
-        String imagepath = "https://tostechllc.com/bsmrau/facultyimage/"+listedFaculty.getImage();
+        String imagePath = "https://tostechllc.com/bsmrau/facultyimage/"+listedFaculty.getImage();
 
-        Picasso.get().load(imagepath).resize(100,100).into(facultyimage);
+        Picasso.get().load(imagePath).resize(60,60).into(image);
 
         return rowView;
     }
