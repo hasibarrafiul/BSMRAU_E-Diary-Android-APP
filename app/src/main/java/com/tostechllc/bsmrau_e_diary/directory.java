@@ -120,12 +120,29 @@ public class directory extends AppCompatActivity {
     public void facultylistShow(){
         facultyListView = findViewById(R.id.directoryListView);
         fetchFaculty();
+        emptyFaculty();
         loadFacultyDatainList();
     }
+
     public void officialslistShow(){
         officialsListView = findViewById(R.id.directoryListView);
         fetchOfficials();
+        emptyOfficials();
         loadOfficialsDatainList();
+    }
+
+    private void emptyFaculty() {
+        arrayListFaculty = new ArrayList<>();
+        customFacultyAdapter = new customFacultyAdapter(this,arrayListFaculty);
+        facultyListView.setAdapter(customFacultyAdapter);
+        customFacultyAdapter.notifyDataSetChanged();
+    }
+
+    private void emptyOfficials() {
+        arrayListOfficials = new ArrayList<>();
+        customOfficialsAdapter = new customOfficialsAdapter(this,arrayListOfficials);
+        officialsListView.setAdapter(customOfficialsAdapter);
+        customOfficialsAdapter.notifyDataSetChanged();
     }
 
     public void fetchFaculty(){
