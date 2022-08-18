@@ -48,7 +48,16 @@ public class home extends AppCompatActivity  {
         Button calender = findViewById(R.id.btn_calender);
         calender.setOnClickListener(view -> fetchCalender());
 
+        Button notice = findViewById(R.id.btn_notice);
+        notice.setOnClickListener(view -> fetchNotice());
+
     }
+
+    private void fetchNotice() {
+        Intent intent = new Intent(this, notices.class);
+        startActivity(intent);
+    }
+
     //@Override
     public boolean onNavigationItemSelected(MenuItem item) {
         //DrawerLayout drawer = findViewById(R.id.drawer_layout);
