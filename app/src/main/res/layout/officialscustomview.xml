@@ -10,8 +10,8 @@
         android:id="@+id/offid"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="facid"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="offid"
+        app:layout_constraintEnd_toStartOf="@+id/officialsImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,8 +19,8 @@
         android:id="@+id/offname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="facname"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="offname"
+        app:layout_constraintEnd_toStartOf="@+id/officialsImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/offid" />
 
@@ -28,9 +28,16 @@
         android:id="@+id/offdepartment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="facdepartment"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="offdepartment"
+        app:layout_constraintEnd_toStartOf="@+id/officialsImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/offname" />
+
+    <ImageView
+        android:id="@+id/officialsImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
