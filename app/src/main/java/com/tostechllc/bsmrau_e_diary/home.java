@@ -57,6 +57,9 @@ public class home extends AppCompatActivity  {
         Button news = findViewById(R.id.btn_news);
         news.setOnClickListener(view -> fetchNews());
 
+        Button videos = findViewById(R.id.btn_video);
+        videos.setOnClickListener(view -> fetchVideos());
+
     }
 
     //@Override
@@ -85,6 +88,10 @@ public class home extends AppCompatActivity  {
     }
     private void fetchNews() {
         Intent intent = new Intent(this, news.class);
+        startActivity(intent);
+    }
+    private void fetchVideos() {
+        Intent intent = new Intent(this, videos.class);
         startActivity(intent);
     }
 
