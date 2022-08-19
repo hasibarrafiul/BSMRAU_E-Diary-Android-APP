@@ -42,6 +42,7 @@ public class CalenderView extends AppCompatActivity {
                                     int month,
                                     int dayOfMonth)
                             {
+                                emptyArraylist();
                                 fetchHoliday();
                                 monthToFetch = month+1;
                                 //System.out.println(month+1);
@@ -74,9 +75,9 @@ public class CalenderView extends AppCompatActivity {
                         String datetime = date.getString("datetime");
                         JSONObject getDay = new JSONObject(datetime);
                         String day = getDay.getString("day");
-//                        System.out.println(holidayName);
-//                        System.out.println(holidayDesc);
-//                        System.out.println(day);
+                        System.out.println(holidayName);
+                        System.out.println(holidayDesc);
+                        System.out.println(day);
 
                         holidayListView holidayListView = new holidayListView(holidayName, holidayDesc, day);
                         arrayListHoliday.add(holidayListView);
@@ -114,6 +115,13 @@ public class CalenderView extends AppCompatActivity {
 
     public void loadDatainList(){
         customHolidayAdapter = new customHolidayAdapter(this, arrayListHoliday);
+        holidayListView.setAdapter(customHolidayAdapter);
+        customHolidayAdapter.notifyDataSetChanged();
+    }
+
+    private void emptyArraylist() {
+        arrayListHoliday = new ArrayList<>();
+        customHolidayAdapter = new customHolidayAdapter(this,arrayListHoliday);
         holidayListView.setAdapter(customHolidayAdapter);
         customHolidayAdapter.notifyDataSetChanged();
     }
