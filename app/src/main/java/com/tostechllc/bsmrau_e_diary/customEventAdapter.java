@@ -63,6 +63,19 @@ public class customEventAdapter extends BaseAdapter {
 
         Picasso.get().load(imagePath).resize(60,60).into(image);
 
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, event_details.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("eventheading", listedEvent.getHeading());
+                intent.putExtra("eventcontent", listedEvent.getContent());
+                intent.putExtra("eventimage", listedEvent.getHeadingimage());
+                intent.putExtra("eventtime", listedEvent.getCreated_on());
+                context.startActivity(intent);
+            }
+
+        });
+
         return rowView;
     }
 }
