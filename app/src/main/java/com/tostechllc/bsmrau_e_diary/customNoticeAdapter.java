@@ -1,6 +1,7 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,12 +46,22 @@ public class customNoticeAdapter extends BaseAdapter {
 
         listedNotice listedNotice = arrayList.get(position);
 
-        System.out.println("Notice Custom Adapter "+listedNotice.getId());
 
         noticeheading.setText(listedNotice.getHeading());
         noticeDate.setText(listedNotice.getDate());
 
 
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, noticeDetails.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("noticeheading", listedNotice.getHeading());
+                intent.putExtra("noticedetails", listedNotice.getDetails());
+                intent.putExtra("noticeimage", listedNotice.getImage());
+                context.startActivity(intent);
+            }
+
+        });
         return rowView;
     }
 }
