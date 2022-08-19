@@ -2,7 +2,6 @@ package com.tostechllc.bsmrau_e_diary;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,16 +46,16 @@ public class customEventAdapter extends BaseAdapter {
         View rowView = inflater.inflate(R.layout.eventcustomview, parent, false);
 
         TextView heading = rowView.findViewById(R.id.tv_heading);
-        TextView content = rowView.findViewById(R.id.tv_content);
-        TextView id = rowView.findViewById(R.id.tv_id);
+//        TextView content = rowView.findViewById(R.id.tv_content);
+//        TextView id = rowView.findViewById(R.id.tv_id);
         TextView created_on = rowView.findViewById(R.id.tv_created_on);
         ImageView image = rowView.findViewById(R.id.heading_image);
 
         listedEvent listedEvent = arrayList.get(position);
 
-        id.setText(String.valueOf(listedEvent.getId()));
+//        id.setText(String.valueOf(listedEvent.getId()));
         heading.setText(String.valueOf(listedEvent.getHeading()));
-        content.setText(String.valueOf(listedEvent.getContent()));
+//        content.setText(String.valueOf(listedEvent.getContent()));
         created_on.setText(String.valueOf(listedEvent.getCreated_on()));
 
         String imagePath = "https://tostechllc.com/bsmrau/eventimage/"+listedEvent.getHeadingimage();

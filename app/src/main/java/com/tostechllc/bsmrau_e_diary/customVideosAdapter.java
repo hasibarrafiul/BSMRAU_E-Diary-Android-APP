@@ -44,7 +44,7 @@ public class customVideosAdapter extends BaseAdapter {
 
         View rowView = inflater.inflate(R.layout.videos_customview, parent, false);
 
-        TextView videoid = rowView.findViewById(R.id.tv_videoid);
+//        TextView videoid = rowView.findViewById(R.id.tv_videoid);
         TextView tv_videoname = rowView.findViewById(R.id.tv_videoname);
         TextView date = rowView.findViewById(R.id.tv_date);
 
@@ -52,7 +52,7 @@ public class customVideosAdapter extends BaseAdapter {
         listedVideos listedVideos = arrayList.get(position);
 
 
-        videoid.setText(String.valueOf(listedVideos.getId()));
+//        videoid.setText(String.valueOf(listedVideos.getId()));
         tv_videoname.setText(String.valueOf(listedVideos.getVideoname()));
         date.setText(String.valueOf(listedVideos.getDate()));
 

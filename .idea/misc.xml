@@ -4,35 +4,35 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/drawable/rounded_10dp_blue.xml" value="0.1925" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/drawable/rounded_10dp_dark_blue.xml" value="0.1515" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/drawable/rounded_10dp_white_bg.xml" value="0.12" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/drawable/rounded_30dp_bg_white.xml" value="0.136" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_calender_view.xml" value="0.2453125" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_directory.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_event.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_event_details.xml" value="0.259375" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_news.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_news_details.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_notice_details.xml" value="0.259375" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_notice_list.xml" value="0.2453125" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_notices.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/activity_videos.xml" value="0.259375" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/customview_faculty_officials_list.xml" value="0.259375" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/customview_notice_list.xml" value="0.264" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_directory.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_faculty.xml" value="0.25" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_notice_list.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_notices.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/activity_officials.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/customview_faculty_officials_list.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/directorycustomview.xml" value="0.365625" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/facultycustomview.xml" value="0.5" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/noticecustomview.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/USER/StudioProjects/BSMRAU_E-Diary-Android-APP/app/src/main/res/layout/officialscustomview.xml" value="0.5" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/directorycustomview.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/eventcustomview.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/facultycustomview.xml" value="0.264" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/news_customview.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/noticecustomview.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/officialscustomview.xml" value="0.259375" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/videos_customview.xml" value="0.259375" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/drawable-v24/roundedbutton2.xml" value="0.283" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/drawable-v24/roundedbutton3.xml" value="0.283" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/drawable/roundedbutton.xml" value="0.283" />
-        <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_calender_view.xml" value="0.3625" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_notice_details.xml" value="0.5" />
-        <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_notices.xml" value="0.18541666666666667" />
-        <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/facultycustomview.xml" value="0.18541666666666667" />
-        <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/holiday_customview.xml" value="0.5" />
       </map>
     </option>
   </component>
