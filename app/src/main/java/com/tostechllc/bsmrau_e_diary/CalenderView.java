@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.CalendarView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,16 +17,22 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class CalenderView extends AppCompatActivity {
     CalendarView calendar;
     int monthToFetch=1;
+    ListView holidayListView;
+    customHolidayAdapter customHolidayAdapter;
+    ArrayList<holidayListView> arrayListHoliday;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender_view);
         calendar = findViewById(R.id.calendar);
+        arrayListHoliday = new ArrayList<>();
+        holidayListView = findViewById(R.id.holidayListView);
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
                             @Override
@@ -53,7 +60,7 @@ public class CalenderView extends AppCompatActivity {
                     JSONObject response = ja.getJSONObject("response");
                     String holidays = response.getString("holidays");
 
-                    System.out.println(holidays);
+                    //System.out.println(holidays);
 
                     JSONArray jaa = new JSONArray(holidays);
                     JSONObject jo = null;
@@ -67,9 +74,13 @@ public class CalenderView extends AppCompatActivity {
                         String datetime = date.getString("datetime");
                         JSONObject getDay = new JSONObject(datetime);
                         String day = getDay.getString("day");
-                        System.out.println(holidayName);
-                        System.out.println(holidayDesc);
-                        System.out.println(day);
+//                        System.out.println(holidayName);
+//                        System.out.println(holidayDesc);
+//                        System.out.println(day);
+
+                        holidayListView holidayListView = new holidayListView(holidayName, holidayDesc, day);
+                        arrayListHoliday.add(holidayListView);
+                        loadDatainList();
 
                     }
                 } catch (Exception e) {
@@ -99,6 +110,12 @@ public class CalenderView extends AppCompatActivity {
         }
         dbManager obj =new dbManager();
         obj.execute("https://calendarific.com/api/v2/holidays?&api_key=3d83d3036ddc23ba1fe94d17e6a2ecc2036b79cd&country=BD&year=2022&month="+monthToFetch);
+    }
+
+    public void loadDatainList(){
+        customHolidayAdapter = new customHolidayAdapter(this, arrayListHoliday);
+        holidayListView.setAdapter(customHolidayAdapter);
+        customHolidayAdapter.notifyDataSetChanged();
     }
 }
 
