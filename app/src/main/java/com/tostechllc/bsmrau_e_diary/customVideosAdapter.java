@@ -1,6 +1,8 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +55,17 @@ public class customVideosAdapter extends BaseAdapter {
         videoid.setText(String.valueOf(listedVideos.getId()));
         videolink.setText(String.valueOf(listedVideos.getVideolink()));
         date.setText(String.valueOf(listedVideos.getDate()));
+
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                String temp = listedVideos.getVideolink();
+                intent.setData(Uri.parse(temp));
+
+                context.startActivity(intent);
+            }
+        });
 
         return rowView;
     }
