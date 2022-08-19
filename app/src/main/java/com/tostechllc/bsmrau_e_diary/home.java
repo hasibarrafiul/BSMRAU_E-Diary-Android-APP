@@ -51,11 +51,9 @@ public class home extends AppCompatActivity  {
         Button notice = findViewById(R.id.btn_notice);
         notice.setOnClickListener(view -> fetchNotice());
 
-    }
+        Button event = findViewById(R.id.btn_event);
+        event.setOnClickListener(view -> fetchEvent());
 
-    private void fetchNotice() {
-        Intent intent = new Intent(this, notices.class);
-        startActivity(intent);
     }
 
     //@Override
@@ -73,5 +71,14 @@ public class home extends AppCompatActivity  {
         startActivity(intent);
     }
 
+    private void fetchNotice() {
+        Intent intent = new Intent(this, notices.class);
+        startActivity(intent);
+    }
+
+    private void fetchEvent() {
+        Intent intent = new Intent(this, event.class);
+        startActivity(intent);
+    }
 
 }
