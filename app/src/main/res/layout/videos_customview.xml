@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/news_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo_username"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/user24px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_videoname"
+        app:layout_constraintBottom_toBottomOf="@id/tv_videoname"
+        app:layout_constraintEnd_toStartOf="@id/tv_videoname"
+        />
+
+    <TextView android:id="@+id/tv_videoname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="tv_videoname"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toTopOf="@id/news_image"
+        app:layout_constraintStart_toEndOf="@id/logo_username"
+        app:layout_constraintEnd_toStartOf="@id/news_image"
+        app:layout_constraintBottom_toTopOf="@id/tv_videoid"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/logo_work"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/work24px"
+        app:layout_constraintBottom_toBottomOf="@id/tv_videoid"
+        app:layout_constraintEnd_toStartOf="@id/tv_videoid"
+        app:layout_constraintStart_toStartOf="@+id/logo_username"
+        app:layout_constraintTop_toTopOf="@id/tv_videoid" />
+
+    <TextView
+        android:id="@+id/tv_videoid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="tv_videoid"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@id/news_image"
+        app:layout_constraintStart_toEndOf="@id/logo_work"
+        app:layout_constraintTop_toBottomOf="@+id/tv_videoname" />
+
+    <ImageView
+        android:id="@+id/logo_email"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/email24px"
+        app:layout_constraintBottom_toBottomOf="@id/tv_date"
+        app:layout_constraintEnd_toStartOf="@id/tv_date"
+        app:layout_constraintStart_toStartOf="@+id/logo_username"
+        app:layout_constraintTop_toTopOf="@id/tv_date" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="tv_date"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/logo_email"
+        app:layout_constraintTop_toBottomOf="@+id/tv_videoid" />
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
