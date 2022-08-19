@@ -39,16 +39,19 @@ public class customHolidayAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View rowView = inflater.inflate(R.layout.holiday_customview, parent, false);
 
         holidayListView holidayListView = arrayListHoliday.get(position);
 
-        //TextView title = rowView.findViewById(R.id.holidayTitle);
-        //title.setText(holidayListView.getName());
-        System.out.println(holidayListView.getName());
+        TextView title = rowView.findViewById(R.id.holidayTitle);
+        TextView desc = rowView.findViewById(R.id.holidaydesc);
+        TextView day = rowView.findViewById(R.id.holidayDay);
+
+        title.setText(holidayListView.getName());
+        desc.setText(holidayListView.getDesc());
+        day.setText(holidayListView.getDay());
 
         return rowView;
     }
