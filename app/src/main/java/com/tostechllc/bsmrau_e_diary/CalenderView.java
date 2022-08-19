@@ -1,5 +1,7 @@
 package com.tostechllc.bsmrau_e_diary;
 
+import android.annotation.SuppressLint;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.CalendarView;
 import android.widget.TextView;
@@ -7,56 +9,96 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CalenderView extends AppCompatActivity {
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-    // Define the variable of CalendarView type
-    // and TextView type;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class CalenderView extends AppCompatActivity {
     CalendarView calendar;
-    TextView date_view;
+    int monthToFetch=1;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender_view);
+        calendar = findViewById(R.id.calendar);
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
-        // By ID we can use each component
-        // which id is assign in xml file
-        // use findViewById() to get the
-        // CalendarView and TextView
-        calendar = (CalendarView)
-                findViewById(R.id.calendar);
-        date_view = (TextView)
-                findViewById(R.id.date_view);
-
-        // Add Listener in calendar
-        calendar
-                .setOnDateChangeListener(
-                        new CalendarView
-                                .OnDateChangeListener() {
                             @Override
-
-                            // In this Listener have one method
-                            // and in this method we will
-                            // get the value of DAYS, MONTH, YEARS
                             public void onSelectedDayChange(
                                     @NonNull CalendarView view,
                                     int year,
                                     int month,
                                     int dayOfMonth)
                             {
-
-                                // Store the value of date with
-                                // format in String type Variable
-                                // Add 1 in month because month
-                                // index is start with 0
-                                String Date
-                                        = dayOfMonth + "-"
-                                        + (month + 1) + "-" + year;
-
-                                // set this date in TextView for Display
-                                date_view.setText(Date);
+                                fetchHoliday();
+                                monthToFetch = month+1;
+                                //System.out.println(month+1);
                             }
                         });
+    }
+
+    public void fetchHoliday(){
+        @SuppressLint("StaticFieldLeak")
+        class dbManager extends AsyncTask<String,Void,String>
+        {
+            protected void onPostExecute(String data){
+                try {
+
+                    JSONObject  ja = new JSONObject(data);
+                    JSONObject response = ja.getJSONObject("response");
+                    String holidays = response.getString("holidays");
+
+                    System.out.println(holidays);
+
+                    JSONArray jaa = new JSONArray(holidays);
+                    JSONObject jo = null;
+
+                    for(int i =0;i<jaa.length();i++){
+                        jo=jaa.getJSONObject(i);
+                        String holidayName = jo.getString("name");
+                        String holidayDesc = jo.getString("description");
+                        String holidayDate = jo.getString("date");
+                        JSONObject date = new JSONObject(holidayDate);
+                        String datetime = date.getString("datetime");
+                        JSONObject getDay = new JSONObject(datetime);
+                        String day = getDay.getString("day");
+                        System.out.println(holidayName);
+                        System.out.println(holidayDesc);
+                        System.out.println(day);
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            protected String doInBackground(String... strings) {
+                try {
+                    URL url = new URL(strings[0]);
+                    HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    StringBuffer data = new StringBuffer();
+                    String line;
+
+                    while((line=br.readLine())!=null){
+                        data.append(line+"\n");
+                    }
+                    br.close();
+                    return data.toString();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        dbManager obj =new dbManager();
+        obj.execute("https://calendarific.com/api/v2/holidays?&api_key=3d83d3036ddc23ba1fe94d17e6a2ecc2036b79cd&country=BD&year=2022&month="+monthToFetch);
     }
 }
 

@@ -7,30 +7,16 @@
     android:layout_height="match_parent"
     >
 
-    <!-- Add TextView to display the date -->
-    <TextView
-        android:id="@+id/date_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Set the Date"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
-    <!-- Add CalendarView to display the Calendar -->
     <CalendarView
         android:id="@+id/calendar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="true"
         android:weekDayTextAppearance="@color/blue"
-        app:layout_constraintTop_toBottomOf="@id/date_view"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
