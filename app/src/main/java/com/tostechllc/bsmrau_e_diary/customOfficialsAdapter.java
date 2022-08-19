@@ -1,6 +1,8 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +53,6 @@ public class customOfficialsAdapter extends BaseAdapter {
 
         listedOfficials listedOfficials = arrayList.get(position);
 
-        System.out.println("Custom Adapter"+listedOfficials.getId());
 
         name.setText(String.valueOf(listedOfficials.getName()));
         work.setText(String.valueOf(listedOfficials.getDesignation()));
@@ -59,9 +60,22 @@ public class customOfficialsAdapter extends BaseAdapter {
         email.setText(String.valueOf(listedOfficials.getEmail()));
         officePhone.setText(String.valueOf(listedOfficials.getOfficenumber()));
 
-        String imagePath = "https://tostechllc.com/bsmrau/facultyimage/"+listedOfficials.getImage();
+
+        String imagePath = "https://tostechllc.com/bsmrau/officialsimage/"+listedOfficials.getImage();
 
         Picasso.get().load(imagePath).resize(100,100).into(image);
+
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                String temp = "tel:" + listedOfficials.getMobilenumber();
+                intent.setData(Uri.parse(temp));
+
+                context.startActivity(intent);
+            }
+        });
+
 
         return rowView;
     }

@@ -1,6 +1,8 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +62,17 @@ public class customFacultyAdapter extends BaseAdapter {
         String imagePath = "https://tostechllc.com/bsmrau/facultyimage/"+listedFaculty.getImage();
 
         Picasso.get().load(imagePath).resize(60,60).into(image);
+
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                String temp = "tel:" + listedFaculty.getMobilenumber();
+                intent.setData(Uri.parse(temp));
+
+                context.startActivity(intent);
+            }
+        });
 
         return rowView;
     }

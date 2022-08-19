@@ -4,6 +4,7 @@
     package="com.tostechllc.bsmrau_e_diary">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 
     <application
         android:allowBackup="true"

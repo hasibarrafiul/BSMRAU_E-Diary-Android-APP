@@ -22,11 +22,7 @@ import java.util.ArrayList;
 
 public class directory extends AppCompatActivity {
 
-    public static final String FETCH_DIRECTORY = "https://tostechllc.com/android/getDirectory.php";
-    ArrayList<postedDirectory> arrayList;
     Button faculty, officials;
-    ListView directoryListView;
-    customDirectoryAdapter customDirectoryAdapter;
 
     public static final String FETCH_FACULTY = "https://tostechllc.com/android/getFaculty.php";
     ArrayList<listedFaculty> arrayListFaculty;
@@ -44,7 +40,6 @@ public class directory extends AppCompatActivity {
         setContentView(R.layout.activity_directory);
         //directoryListView = findViewById(R.id.directoryListView);
 
-        arrayList = new ArrayList<>();
         arrayListFaculty = new ArrayList<>();
         arrayListOfficials = new ArrayList<>();
 
@@ -55,6 +50,8 @@ public class directory extends AppCompatActivity {
         officials.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_dark_blue));
         officials.setOnClickListener(view -> officialslistShow());
 
+        facultylistShow();
+
     }
 
     @Override
@@ -62,64 +59,6 @@ public class directory extends AppCompatActivity {
         super.onRestart();
     }
 
-    public void fetchDirectory(){
-        @SuppressLint("StaticFieldLeak")
-        class dbManager extends AsyncTask<String,Void,String>
-        {
-            protected void onPostExecute(String data){
-                try {
-                    JSONArray ja = new JSONArray(data);
-                    JSONObject jo = null;
-
-                    for(int i =0;i<ja.length();i++){
-                        jo=ja.getJSONObject(i);
-                        int directoryid = jo.getInt("id");
-                        String catagory = jo.getString("catagory");
-                        String department = jo.getString("department");
-
-                        System.out.println(directoryid+" "+catagory+" "+department);
-
-                        postedDirectory postedDirectorysingle = new postedDirectory(directoryid,catagory,department);
-
-                        //System.out.println("directory: "+postedDirectorysingle.id);
-
-                        arrayList.add(postedDirectorysingle);
-
-                        loadDatainList();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            @Override
-            protected String doInBackground(String... strings) {
-                try {
-                    URL url = new URL(strings[0]);
-                    HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-                    StringBuffer data = new StringBuffer();
-                    String line;
-
-                    while((line=br.readLine())!=null){
-                        data.append(line+"\n");
-                    }
-                    br.close();
-                    return data.toString();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }
-        dbManager obj =new dbManager();
-        obj.execute(FETCH_DIRECTORY);
-    }
-    public void loadDatainList(){
-        customDirectoryAdapter = new customDirectoryAdapter(this,arrayList);
-        directoryListView.setAdapter(customDirectoryAdapter);
-        customDirectoryAdapter.notifyDataSetChanged();
-    }
     public void facultylistShow(){
         facultyListView = findViewById(R.id.directoryListView);
         faculty.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_blue));
@@ -173,7 +112,6 @@ public class directory extends AppCompatActivity {
                         String image = jo.getString("image");
                         int status = jo.getInt("status");
 
-                        System.out.println(facultyid+" "+name+" "+department);
 
                         listedFaculty listedFaculty = new listedFaculty(facultyid,mobilenumber,officenumber,status,name,designation,department,email,image);
 
@@ -235,7 +173,6 @@ public class directory extends AppCompatActivity {
                         String image = jo.getString("image");
                         int status = jo.getInt("status");
 
-                        System.out.println(officialid+" "+name+" "+department);
 
                         listedOfficials listedOfficials = new listedOfficials(officialid,mobilenumber,officenumber,status,name,designation,department,email,image);
 
