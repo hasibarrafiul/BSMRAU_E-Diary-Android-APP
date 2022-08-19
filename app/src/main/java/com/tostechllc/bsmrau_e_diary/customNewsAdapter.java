@@ -63,6 +63,19 @@ public class customNewsAdapter extends BaseAdapter {
 
         Picasso.get().load(imagePath).resize(60,60).into(image);
 
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, news_details.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("newsheading", listedNews.getNewsheading());
+                intent.putExtra("newscontent", listedNews.getNewscontent());
+                intent.putExtra("newsimage", listedNews.getNewsimage());
+                intent.putExtra("newstime", listedNews.getCreated_on());
+                context.startActivity(intent);
+            }
+
+        });
+
 
         return rowView;
     }
