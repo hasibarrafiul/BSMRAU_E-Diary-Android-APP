@@ -2,7 +2,6 @@ package com.tostechllc.bsmrau_e_diary;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,17 +45,17 @@ public class customNewsAdapter extends BaseAdapter {
 
         View rowView = inflater.inflate(R.layout.news_customview, parent, false);
 
-        TextView id = rowView.findViewById(R.id.tv_id);
+//        TextView id = rowView.findViewById(R.id.tv_id);
         TextView newsheading = rowView.findViewById(R.id.tv_newsheading);
-        TextView newscontent = rowView.findViewById(R.id.tv_newscontent);
+//        TextView newscontent = rowView.findViewById(R.id.tv_newscontent);
         TextView created_on = rowView.findViewById(R.id.tv_created_on);
         ImageView image = rowView.findViewById(R.id.news_image);
 
         listedNews listedNews = arrayList.get(position);
 
-        id.setText(String.valueOf(listedNews.getId()));
+//        id.setText(String.valueOf(listedNews.getId()));
         newsheading.setText(String.valueOf(listedNews.getNewsheading()));
-        newscontent.setText(String.valueOf(listedNews.getNewscontent()));
+//        newscontent.setText(String.valueOf(listedNews.getNewscontent()));
         created_on.setText(String.valueOf(listedNews.getCreated_on()));
 
         String imagePath = "https://tostechllc.com/bsmrau/newsimage/"+listedNews.getNewsimage();

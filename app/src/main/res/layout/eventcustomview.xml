@@ -5,105 +5,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:padding="16dp"
+    android:background="@drawable/rounded_10dp_blue">
 
     <ImageView
         android:id="@+id/heading_image"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/logo_username"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:src="@drawable/user24px"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_heading"
-        app:layout_constraintBottom_toBottomOf="@id/tv_heading"
-        app:layout_constraintEnd_toStartOf="@id/tv_heading"
-        />
-
     <TextView android:id="@+id/tv_heading"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="tv_heading"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintTop_toTopOf="@id/heading_image"
-        app:layout_constraintStart_toEndOf="@id/logo_username"
-        app:layout_constraintEnd_toStartOf="@id/heading_image"
-        app:layout_constraintBottom_toTopOf="@id/tv_id"
         android:textStyle="bold"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@id/heading_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         />
 
     <ImageView
-        android:id="@+id/logo_work"
+        android:id="@+id/logo_date"
         android:layout_width="18dp"
         android:layout_height="18dp"
-        android:src="@drawable/work24px"
-        app:layout_constraintBottom_toBottomOf="@id/tv_id"
-        app:layout_constraintEnd_toStartOf="@id/tv_id"
-        app:layout_constraintStart_toStartOf="@+id/logo_username"
-        app:layout_constraintTop_toTopOf="@id/tv_id" />
-
-    <TextView
-        android:id="@+id/tv_id"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="tv_id"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@id/heading_image"
-        app:layout_constraintStart_toEndOf="@id/logo_work"
-        app:layout_constraintTop_toBottomOf="@+id/tv_heading" />
-
-    <ImageView
-        android:id="@+id/logo_phone"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:src="@drawable/phone24px"
-        app:layout_constraintBottom_toBottomOf="@id/tv_content"
-        app:layout_constraintEnd_toStartOf="@id/tv_content"
-        app:layout_constraintStart_toStartOf="@+id/logo_username"
-        app:layout_constraintTop_toTopOf="@id/tv_content" />
-
-    <TextView
-        android:id="@+id/tv_content"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="tv_content"
-        android:layout_marginTop="6dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@id/heading_image"
-        app:layout_constraintStart_toEndOf="@id/logo_phone"
-        app:layout_constraintTop_toBottomOf="@+id/tv_id" />
-
-    <ImageView
-        android:id="@+id/logo_email"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:src="@drawable/email24px"
+        android:src="@drawable/calendar64px"
+        app:layout_constraintTop_toTopOf="@id/tv_created_on"
         app:layout_constraintBottom_toBottomOf="@id/tv_created_on"
+        app:layout_constraintStart_toStartOf="@id/tv_heading"
         app:layout_constraintEnd_toStartOf="@id/tv_created_on"
-        app:layout_constraintStart_toStartOf="@+id/logo_username"
-        app:layout_constraintTop_toTopOf="@id/tv_created_on" />
+        />
 
-    <TextView
-        android:id="@+id/tv_created_on"
+    <TextView android:id="@+id/tv_created_on"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="tv_notice_date"
+        android:textColor="@color/white"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="4dp"
-        android:text="tv_created_on"
-        android:layout_marginTop="6dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/logo_email"
-        app:layout_constraintTop_toBottomOf="@+id/tv_content" />
-    
+        app:layout_constraintTop_toBottomOf="@id/tv_heading"
+        app:layout_constraintStart_toEndOf="@id/logo_date"
+        app:layout_constraintEnd_toEndOf="@id/tv_heading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

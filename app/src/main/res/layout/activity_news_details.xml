@@ -4,51 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".news_details">
-    <TextView
-        android:id="@+id/newsHeading"
-        android:layout_width="wrap_content"
+    tools:context=".event_details">
+
+    <TextView  android:id="@+id/newsHeading"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="newsHeading"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/rounded_10dp_blue"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063" />
-
-    <TextView
-        android:id="@+id/newsContent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/newsTime"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newsHeading" />
-
-    <TextView
-        android:id="@+id/newsTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/newsImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newsContent" />
+        app:layout_constraintBottom_toTopOf="@id/newsImage"
+        />
+
+    <ImageView android:id="@+id/newsImage"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        tools:srcCompat="@tools:sample/avatars"
+        app:layout_constraintTop_toBottomOf="@id/newsHeading"
+        app:layout_constraintStart_toStartOf="@id/newsHeading"
+        app:layout_constraintEnd_toEndOf="@id/newsHeading"
+        />
+
+    <TextView  android:id="@+id/newsContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="newsContent"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/rounded_10dp_dark_blue"
+        app:layout_constraintTop_toBottomOf="@id/newsImage"
+        app:layout_constraintStart_toStartOf="@id/newsHeading"
+        app:layout_constraintEnd_toEndOf="@id/newsHeading"
+        />
 
     <ImageView
-        android:id="@+id/newsImage"
-        android:layout_width="wrap_content"
+        android:id="@+id/logo_date"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/calendar64px"
+        app:layout_constraintBottom_toBottomOf="@+id/newsTime"
+        app:layout_constraintEnd_toStartOf="@id/newsTime"
+        app:layout_constraintStart_toStartOf="@id/newsContent"
+        app:layout_constraintTop_toTopOf="@id/newsTime" />
+
+    <TextView android:id="@+id/newsTime"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="82dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newsTime"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:text="newsTime"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintTop_toBottomOf="@id/newsContent"
+        app:layout_constraintStart_toEndOf="@id/logo_date"
+        app:layout_constraintEnd_toEndOf="@id/newsContent"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
