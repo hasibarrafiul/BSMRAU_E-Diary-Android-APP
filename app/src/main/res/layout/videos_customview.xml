@@ -20,15 +20,15 @@
         android:layout_height="18dp"
         android:src="@drawable/user24px"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_videolink"
-        app:layout_constraintBottom_toBottomOf="@id/tv_videolink"
-        app:layout_constraintEnd_toStartOf="@id/tv_videolink"
+        app:layout_constraintTop_toTopOf="@id/tv_videoname"
+        app:layout_constraintBottom_toBottomOf="@id/tv_videoname"
+        app:layout_constraintEnd_toStartOf="@id/tv_videoname"
         />
 
-    <TextView android:id="@+id/tv_videolink"
+    <TextView android:id="@+id/tv_videoname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="tv_videolink"
+        android:text="tv_videoname"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:layout_marginStart="4dp"
@@ -60,7 +60,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@id/news_image"
         app:layout_constraintStart_toEndOf="@id/logo_work"
-        app:layout_constraintTop_toBottomOf="@+id/tv_videolink" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_videoname" />
 
     <ImageView
         android:id="@+id/logo_email"

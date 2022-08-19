@@ -47,9 +47,10 @@ public class videos extends AppCompatActivity {
                         int videoid = jo.getInt("id");
                         String videolink = jo.getString("videolink");
                         String date = jo.getString("date");
+                        String videoname = jo.getString("videoname");
 
 
-                        listedVideos listedVideos = new listedVideos(videoid,videolink,date);
+                        listedVideos listedVideos = new listedVideos(videoid,videolink,date,videoname);
 
                         arrayListVideos.add(listedVideos);
 
