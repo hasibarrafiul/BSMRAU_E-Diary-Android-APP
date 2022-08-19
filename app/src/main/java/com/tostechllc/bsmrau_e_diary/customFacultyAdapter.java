@@ -67,7 +67,7 @@ public class customFacultyAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                String temp = "tel:" + listedFaculty.getMobilenumber();
+                String temp = "tel: 0" + listedFaculty.getMobilenumber();
                 intent.setData(Uri.parse(temp));
 
                 context.startActivity(intent);

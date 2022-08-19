@@ -69,7 +69,7 @@ public class customOfficialsAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                String temp = "tel:" + listedOfficials.getMobilenumber();
+                String temp = "tel: 0" + listedOfficials.getMobilenumber();
                 intent.setData(Uri.parse(temp));
 
                 context.startActivity(intent);
