@@ -54,6 +54,9 @@ public class home extends AppCompatActivity  {
         Button event = findViewById(R.id.btn_event);
         event.setOnClickListener(view -> fetchEvent());
 
+        Button news = findViewById(R.id.btn_news);
+        news.setOnClickListener(view -> fetchNews());
+
     }
 
     //@Override
@@ -78,6 +81,10 @@ public class home extends AppCompatActivity  {
 
     private void fetchEvent() {
         Intent intent = new Intent(this, event.class);
+        startActivity(intent);
+    }
+    private void fetchNews() {
+        Intent intent = new Intent(this, news.class);
         startActivity(intent);
     }
 
