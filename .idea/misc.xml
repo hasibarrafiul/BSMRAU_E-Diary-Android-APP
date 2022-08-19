@@ -24,6 +24,7 @@
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/directorycustomview.xml" value="0.259375" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/eventcustomview.xml" value="0.259375" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/facultycustomview.xml" value="0.264" />
+        <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/holiday_customview.xml" value="0.259375" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/news_customview.xml" value="0.259375" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/noticecustomview.xml" value="0.259375" />
         <entry key="..\:/Android Studio/BSMRAU-E-Diary-Android-APP/app/src/main/res/layout/officialscustomview.xml" value="0.259375" />
@@ -33,7 +34,6 @@
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/drawable/roundedbutton.xml" value="0.283" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/holiday_customview.xml" value="0.5" />
       </map>
     </option>
   </component>
