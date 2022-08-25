@@ -69,7 +69,7 @@ public class home extends AppCompatActivity  {
         return true;
     }
     public void fetchDirectory(){
-        Intent intent = new Intent(this, directory.class);
+        Intent intent = new Intent(this, Catagory.class);
         startActivity(intent);
     }
     public void fetchCalender(){
