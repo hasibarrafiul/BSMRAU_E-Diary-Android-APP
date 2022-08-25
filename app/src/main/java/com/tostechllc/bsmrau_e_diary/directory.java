@@ -23,13 +23,11 @@ import java.util.ArrayList;
 public class directory extends AppCompatActivity {
 
     Button faculty, officials;
+    String subCatagoryPrev;
 
-    public static final String FETCH_FACULTY = "https://tostechllc.com/android/getFaculty.php";
     ArrayList<listedFaculty> arrayListFaculty;
     ListView facultyListView;
     customFacultyAdapter customFacultyAdapter;
-
-    public static final String FETCH_OFFICIALS = "https://tostechllc.com/android/getOfficials.php";
     ArrayList<listedOfficials> arrayListOfficials;
     ListView officialsListView;
     com.tostechllc.bsmrau_e_diary.customOfficialsAdapter customOfficialsAdapter;
@@ -39,6 +37,11 @@ public class directory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_directory);
         //directoryListView = findViewById(R.id.directoryListView);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            subCatagoryPrev = extras.getString("subcatagory");
+        }
 
         arrayListFaculty = new ArrayList<>();
         arrayListOfficials = new ArrayList<>();
@@ -145,7 +148,7 @@ public class directory extends AppCompatActivity {
             }
         }
         dbManager obj =new dbManager();
-        obj.execute(FETCH_FACULTY);
+        obj.execute("https://tostechllc.com/android/getFaculty.php?department="+subCatagoryPrev);
     }
     public void loadFacultyDatainList(){
         customFacultyAdapter = new customFacultyAdapter(this,arrayListFaculty);
@@ -206,7 +209,7 @@ public class directory extends AppCompatActivity {
             }
         }
         dbManager obj =new dbManager();
-        obj.execute(FETCH_OFFICIALS);
+        obj.execute("https://tostechllc.com/android/getOfficials.php?department="+subCatagoryPrev);
     }
     public void loadOfficialsDatainList(){
         customOfficialsAdapter = new customOfficialsAdapter(this,arrayListOfficials);
