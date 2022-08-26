@@ -1,11 +1,13 @@
 package com.tostechllc.bsmrau_e_diary;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,9 +21,10 @@ import java.util.ArrayList;
 public class subCatagory extends AppCompatActivity {
 
     ArrayList<listedSubcatagory> arrayListSubCatagory;
-    ListView SubcatagoryListView;
+    GridView SubcatagoryListView;
     customSubCatagoryAdapter customSubCatagoryAdapter;
-    String catagoryPrev;
+    String catagoryPrev, titlePrev;
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +35,14 @@ public class subCatagory extends AppCompatActivity {
 
         if (extras != null) {
             catagoryPrev = extras.getString("catagory");
+            titlePrev = extras.getString("title_subcategory");
         }
 
         arrayListSubCatagory = new ArrayList<>();
 
         SubcatagoryListView = findViewById(R.id.SubcatagoryListView);
+        title = findViewById(R.id.tv_title_subcategory);
+        title.setText(titlePrev);
 
         fetchEvent();
 

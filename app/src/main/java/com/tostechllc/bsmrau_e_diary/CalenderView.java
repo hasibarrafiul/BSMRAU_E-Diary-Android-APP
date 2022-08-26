@@ -1,13 +1,16 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.annotation.SuppressLint;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.CalendarView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -18,21 +21,28 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CalenderView extends AppCompatActivity {
     CalendarView calendar;
-    int monthToFetch=1;
+    int monthToFetch=1, yearToFetch = 2022;
     ListView holidayListView;
     customHolidayAdapter customHolidayAdapter;
     ArrayList<holidayListView> arrayListHoliday;
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender_view);
         calendar = findViewById(R.id.calendar);
+        long selectedDate = calendar.getDate();
+        milliSecToDate(selectedDate);
+        System.out.println("Data selected: "+selectedDate);
         arrayListHoliday = new ArrayList<>();
         holidayListView = findViewById(R.id.holidayListView);
+        emptyArraylist();
+        fetchHoliday();
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
                             @Override
@@ -42,12 +52,22 @@ public class CalenderView extends AppCompatActivity {
                                     int month,
                                     int dayOfMonth)
                             {
+                                monthToFetch = month+1;
+                                yearToFetch = year;
                                 emptyArraylist();
                                 fetchHoliday();
-                                monthToFetch = month+1;
-                                //System.out.println(month+1);
                             }
                         });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    void milliSecToDate (long milliSec){
+        @SuppressLint("SimpleDateFormat") DateFormat obj = new SimpleDateFormat("dd MM yyyy HH:mm:ss:SSS Z");
+        Date res = new Date(milliSec);
+        String[] date = obj.format(res).split(" ");
+        monthToFetch = Integer.parseInt(date[1]);
+        yearToFetch = Integer.parseInt(date[2]);
+
     }
 
     public void fetchHoliday(){
@@ -151,7 +171,7 @@ public class CalenderView extends AppCompatActivity {
             }
         }
         dbManager obj =new dbManager();
-        obj.execute("https://calendarific.com/api/v2/holidays?&api_key=3d83d3036ddc23ba1fe94d17e6a2ecc2036b79cd&country=BD&year=2022&month="+monthToFetch);
+        obj.execute("https://calendarific.com/api/v2/holidays?&api_key=3d83d3036ddc23ba1fe94d17e6a2ecc2036b79cd&country=BD&year="+yearToFetch+"&month="+monthToFetch);
     }
 
     public void loadDatainList(){

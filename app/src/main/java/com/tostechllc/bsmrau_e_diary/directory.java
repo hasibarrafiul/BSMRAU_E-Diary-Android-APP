@@ -1,15 +1,14 @@
 package com.tostechllc.bsmrau_e_diary;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,7 +22,8 @@ import java.util.ArrayList;
 public class directory extends AppCompatActivity {
 
     Button faculty, officials;
-    String subCatagoryPrev;
+    TextView title;
+    String subCatagoryPrev, titlePrev;
 
     ArrayList<listedFaculty> arrayListFaculty;
     ListView facultyListView;
@@ -41,16 +41,21 @@ public class directory extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             subCatagoryPrev = extras.getString("subcatagory");
+            titlePrev = extras.getString("title");
         }
 
         arrayListFaculty = new ArrayList<>();
         arrayListOfficials = new ArrayList<>();
 
+        title = findViewById(R.id.tv_title_directory);
+        title.setText(titlePrev);
+
+
         faculty = findViewById(R.id.btn_faculty);
+        faculty.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_dark_blue));
         faculty.setOnClickListener(view -> facultylistShow());
 
         officials = findViewById(R.id.btn_official);
-        officials.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_dark_blue));
         officials.setOnClickListener(view -> officialslistShow());
 
         facultylistShow();
@@ -64,8 +69,8 @@ public class directory extends AppCompatActivity {
 
     public void facultylistShow(){
         facultyListView = findViewById(R.id.directoryListView);
-        faculty.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_blue));
-        officials.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_dark_blue));
+        officials.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_blue));
+        faculty.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_dark_blue));
         fetchFaculty();
         emptyFaculty();
         loadFacultyDatainList();
@@ -73,8 +78,8 @@ public class directory extends AppCompatActivity {
 
     public void officialslistShow(){
         officialsListView = findViewById(R.id.directoryListView);
-        officials.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_blue));
-        faculty.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_dark_blue));
+        faculty.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_blue));
+        officials.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.rounded_10dp_dark_blue));
         fetchOfficials();
         emptyOfficials();
         loadOfficialsDatainList();
