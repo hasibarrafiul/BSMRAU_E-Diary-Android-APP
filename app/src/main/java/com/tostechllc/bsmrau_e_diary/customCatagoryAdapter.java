@@ -43,7 +43,7 @@ public class customCatagoryAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View rowView = inflater.inflate(R.layout.catagorycustomview, parent, false);
+        View rowView = inflater.inflate(R.layout.customview_catagory_gridview, parent, false);
 
         TextView heading = rowView.findViewById(R.id.tv_heading);
         ImageView image = rowView.findViewById(R.id.heading_image);
@@ -64,6 +64,7 @@ public class customCatagoryAdapter extends BaseAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(context, subCatagory.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("catagory", listedCatagory.getCatagory());
+                intent.putExtra("title_subcategory", String.valueOf(listedCatagory.getCatagory()));
                 context.startActivity(intent);
             }
 

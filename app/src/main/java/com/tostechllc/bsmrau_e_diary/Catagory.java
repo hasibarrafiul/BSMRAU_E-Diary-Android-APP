@@ -1,11 +1,11 @@
 package com.tostechllc.bsmrau_e_diary;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.widget.GridView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,7 +20,7 @@ public class Catagory extends AppCompatActivity {
 
     public static final String FETCH_EVENTS = "https://tostechllc.com/android/getCatagory.php";
     ArrayList<listedCatagory> arrayListCatagory;
-    ListView catagoryListView;
+    GridView catagoryListView;
     customCatagoryAdapter customCatagoryAdapter;
 
     @Override

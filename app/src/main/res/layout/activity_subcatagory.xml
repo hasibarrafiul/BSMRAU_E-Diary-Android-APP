@@ -7,12 +7,12 @@
     tools:context=".subCatagory">
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_title_subcategory"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:text="Catagory"
+        android:text="Sub Catagory"
         android:background="@color/blue"
         android:textColor="@color/white"
         android:textSize="28sp"
@@ -21,14 +21,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
+    <GridView
         android:id="@+id/SubcatagoryListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="12dp"
-        android:divider="@null"
-        android:dividerHeight="10dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        android:numColumns="2"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_subcategory"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 

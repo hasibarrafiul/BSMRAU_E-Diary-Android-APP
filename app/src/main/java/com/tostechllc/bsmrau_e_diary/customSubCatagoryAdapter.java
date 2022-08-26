@@ -6,10 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -45,13 +42,11 @@ public class customSubCatagoryAdapter extends BaseAdapter {
 
         View rowView = inflater.inflate(R.layout.subcatagorycustomview, parent, false);
 
-        TextView catagory = rowView.findViewById(R.id.tv_heading);
         TextView subcatagory = rowView.findViewById(R.id.subcatagory);
 
         listedSubcatagory listedSubcatagory = arrayList.get(position);
 
 //        id.setText(String.valueOf(listedEvent.getId()));
-        catagory.setText(String.valueOf(listedSubcatagory.getCatagory()));
         subcatagory.setText(String.valueOf(listedSubcatagory.getSubcatagory()));
 
 
@@ -61,6 +56,7 @@ public class customSubCatagoryAdapter extends BaseAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(context, directory.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("subcatagory", listedSubcatagory.getSubcatagory());
+                intent.putExtra("title", String.valueOf(listedSubcatagory.getCatagory()));
                 context.startActivity(intent);
             }
 
