@@ -3,7 +3,11 @@ package com.tostechllc.bsmrau_e_diary;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,19 +28,30 @@ public class search extends AppCompatActivity {
     ArrayList<listedSearch> arrayListSearch;
     ListView searchListview;
     customSearchAdapter customSearchAdapter;
-
+    EditText searchED;
+    String searchValue = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-
         arrayListSearch = new ArrayList<>();
         searchListview = findViewById(R.id.search_listview);
+        searchED = findViewById(R.id.seachEditText);
 
-        //searchListShow();
-        fetchSearch();
+        searchED.addTextChangedListener(new TextWatcher(){
+            public void afterTextChanged(Editable s) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){
+                System.out.println(searchED.getText().toString().trim());
+                searchValue = searchED.getText().toString().trim();
+                searchListShow();
+            }
+        });
+
+
+        //fetchSearch();
 
     }
 
@@ -46,10 +61,10 @@ public class search extends AppCompatActivity {
     }
 
     public void searchListShow(){
-        //searchListview = findViewById(R.id.search_listview);
-        //fetchSearch();
-        //emptySearch();
-        //loadSearch();
+        searchListview = findViewById(R.id.search_listview);
+        fetchSearch();
+        emptySearch();
+        loadSearch();
     }
 
     private void emptySearch() {
@@ -81,7 +96,6 @@ public class search extends AppCompatActivity {
                         String image = jo.getString("image");
                         int status = jo.getInt("status");
 
-                        System.out.println(name);
 
 
                         listedSearch listedSearch = new listedSearch(facultyid,mobilenumber,officenumber,status,name,designation,department,email,image);
@@ -116,7 +130,7 @@ public class search extends AppCompatActivity {
             }
         }
         dbManager obj =new dbManager();
-        obj.execute("https://tostechllc.com/android/search.php");
+        obj.execute("https://tostechllc.com/android/search.php?search="+searchValue);
     }
     public void loadSearch(){
         customSearchAdapter = new customSearchAdapter(this,arrayListSearch);
