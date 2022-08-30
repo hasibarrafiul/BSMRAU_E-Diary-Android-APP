@@ -99,9 +99,7 @@ public class search extends AppCompatActivity {
 
 
                         listedSearch listedSearch = new listedSearch(facultyid,mobilenumber,officenumber,status,name,designation,department,email,image);
-
                         arrayListSearch.add(listedSearch);
-
                         loadSearch();
                     }
                 } catch (Exception e) {
@@ -137,5 +135,4 @@ public class search extends AppCompatActivity {
         searchListview.setAdapter(customSearchAdapter);
         customSearchAdapter.notifyDataSetChanged();
     }
-
 }
