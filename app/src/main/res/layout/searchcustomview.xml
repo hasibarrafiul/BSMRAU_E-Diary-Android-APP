@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_10dp_blue"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/faculty_image"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        app:layout_constraintStart_toEndOf="@id/tv_username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo_username"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/user24px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_username"
+        app:layout_constraintBottom_toBottomOf="@id/tv_username"
+        app:layout_constraintEnd_toStartOf="@id/tv_username"
+        />
+
+    <TextView android:id="@+id/tv_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="tv_username"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toTopOf="@id/faculty_image"
+        app:layout_constraintStart_toEndOf="@id/logo_username"
+        app:layout_constraintEnd_toStartOf="@id/faculty_image"
+        app:layout_constraintBottom_toTopOf="@id/tv_work"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/logo_work"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/work24px"
+        app:layout_constraintBottom_toBottomOf="@id/tv_work"
+        app:layout_constraintEnd_toStartOf="@id/tv_work"
+        app:layout_constraintStart_toStartOf="@+id/logo_username"
+        app:layout_constraintTop_toTopOf="@id/tv_work" />
+
+    <TextView
+        android:id="@+id/tv_work"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="tv_work"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="4dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/faculty_image"
+        app:layout_constraintStart_toEndOf="@id/logo_work"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+
+    <ImageView
+        android:id="@+id/logo_phone"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/phone24px"
+        app:layout_constraintBottom_toBottomOf="@id/tv_phone"
+        app:layout_constraintEnd_toStartOf="@id/tv_phone"
+        app:layout_constraintStart_toStartOf="@+id/logo_username"
+        app:layout_constraintTop_toTopOf="@id/tv_phone" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="tv_phone"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="4dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/faculty_image"
+        app:layout_constraintStart_toEndOf="@id/logo_phone"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work" />
+
+    <ImageView
+        android:id="@+id/logo_email"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/email24px"
+        app:layout_constraintBottom_toBottomOf="@id/tv_email"
+        app:layout_constraintEnd_toStartOf="@id/tv_email"
+        app:layout_constraintStart_toStartOf="@+id/logo_username"
+        app:layout_constraintTop_toTopOf="@id/tv_email" />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="tv_email"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/logo_email"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
+
+    <ImageView
+        android:id="@+id/logo_officePhone"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/officehone24px"
+        app:layout_constraintBottom_toBottomOf="@id/tv_officePhone"
+        app:layout_constraintEnd_toStartOf="@id/tv_officePhone"
+        app:layout_constraintStart_toStartOf="@+id/logo_username"
+        app:layout_constraintTop_toTopOf="@id/tv_officePhone" />
+
+    <TextView
+        android:id="@+id/tv_officePhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="tv_officePhone"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/logo_officePhone"
+        app:layout_constraintTop_toBottomOf="@+id/tv_email" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

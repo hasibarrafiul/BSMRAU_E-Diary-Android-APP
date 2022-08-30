@@ -21,6 +21,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="search"
+        />
+
     <GridView
         android:id="@+id/catagoryListView"
         android:layout_width="match_parent"
@@ -29,7 +38,7 @@
         android:numColumns="2"
         android:horizontalSpacing="8dp"
         android:verticalSpacing="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/search"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 

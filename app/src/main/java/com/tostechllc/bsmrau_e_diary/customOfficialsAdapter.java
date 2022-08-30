@@ -61,7 +61,7 @@ public class customOfficialsAdapter extends BaseAdapter {
         officePhone.setText(String.valueOf(listedOfficials.getOfficenumber()));
 
 
-        String imagePath = "https://tostechllc.com/bsmrau/officialsimage/"+listedOfficials.getImage();
+        String imagePath = "https://tostechllc.com/bsmrau/facultyimage/"+listedOfficials.getImage();
 
         Picasso.get().load(imagePath).resize(100,100).into(image);
 

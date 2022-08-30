@@ -1,8 +1,10 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,16 +25,21 @@ public class Catagory extends AppCompatActivity {
     GridView catagoryListView;
     customCatagoryAdapter customCatagoryAdapter;
 
+    Button searchButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catagory);
+        searchButton = findViewById(R.id.search);
+        searchButton.setOnClickListener(v->searchActivity());
 
         arrayListCatagory = new ArrayList<>();
 
         catagoryListView = findViewById(R.id.catagoryListView);
 
         fetchEvent();
+
 
     }
 
@@ -92,5 +99,10 @@ public class Catagory extends AppCompatActivity {
         customCatagoryAdapter = new customCatagoryAdapter(this,arrayListCatagory);
         catagoryListView.setAdapter(customCatagoryAdapter);
         customCatagoryAdapter.notifyDataSetChanged();
+    }
+
+    void searchActivity(){
+        Intent intent = new Intent(this, search.class);
+        startActivity(intent);
     }
 }

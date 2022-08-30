@@ -33,12 +33,14 @@
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_notice_details.xml" value="0.5" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_notices.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_search.xml" value="0.3625" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_subcatagory.xml" value="0.3625" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/activity_videos.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/catagorycustomview.xml" value="0.3625" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/customview_catagory_gridview.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/facultycustomview.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/holiday_customview.xml" value="0.5" />
+        <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/searchcustomview.xml" value="0.3625" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/layout/subcatagorycustomview.xml" value="0.3625" />
         <entry key="..\:/Users/fahad/AndroidStudioProjects/BSMRAU_EDiary/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1935" />
       </map>
