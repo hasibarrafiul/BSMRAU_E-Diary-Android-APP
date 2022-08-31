@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,6 +27,7 @@ public class Catagory extends AppCompatActivity {
     customCatagoryAdapter customCatagoryAdapter;
 
     Button searchButton;
+    ImageButton home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +39,19 @@ public class Catagory extends AppCompatActivity {
         arrayListCatagory = new ArrayList<>();
 
         catagoryListView = findViewById(R.id.catagoryListView);
+        home = findViewById(R.id.btn_home);
+
+        home.setOnClickListener(view -> {
+            Intent intent = new Intent(this, home.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);;
+            startActivity(intent);
+            finish();
+        });
 
         fetchEvent();
 
 
     }
+
 
     public void fetchEvent(){
         @SuppressLint("StaticFieldLeak")

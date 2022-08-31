@@ -23,6 +23,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_title_directory"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title_directory"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints">
+        <ImageButton android:id="@+id/btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home24px"
+            android:background="@null"
+            android:layout_marginEnd="12dp"
+            tools:ignore="InvalidId" />
+    </FrameLayout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_title_directory"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title_directory"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+        <ImageButton android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back24px"
+            android:background="@null"
+            android:layout_marginStart="12dp"
+            tools:ignore="InvalidId" />
+    </FrameLayout>
+
     <Button
         android:id="@+id/btn_faculty"
         android:layout_width="wrap_content"

@@ -1,18 +1,16 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.Button;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,6 +37,9 @@ public class search extends AppCompatActivity {
         arrayListSearch = new ArrayList<>();
         searchListview = findViewById(R.id.search_listview);
         searchED = findViewById(R.id.seachEditText);
+        searchED.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(searchED, InputMethodManager.SHOW_IMPLICIT);
 
         searchED.addTextChangedListener(new TextWatcher(){
             public void afterTextChanged(Editable s) {}
