@@ -1,9 +1,11 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,6 +34,8 @@ public class directory extends AppCompatActivity {
     ListView officialsListView;
     com.tostechllc.bsmrau_e_diary.customOfficialsAdapter customOfficialsAdapter;
 
+    ImageButton back, home;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,17 @@ public class directory extends AppCompatActivity {
         officials.setOnClickListener(view -> officialslistShow());
 
         facultylistShow();
+
+        home = findViewById(R.id.btn_home);
+
+        home.setOnClickListener(view -> {
+            Intent intent = new Intent(this, home.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);;
+            startActivity(intent);
+            finish();
+        });
+
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(view -> onBackPressed());
 
     }
 
