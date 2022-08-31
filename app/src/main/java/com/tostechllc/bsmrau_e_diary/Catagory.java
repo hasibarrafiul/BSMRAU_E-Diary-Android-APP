@@ -1,12 +1,16 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,6 +31,7 @@ public class Catagory extends AppCompatActivity {
     customCatagoryAdapter customCatagoryAdapter;
 
     Button searchButton;
+    ImageButton back;
     ImageButton home;
 
     @Override
@@ -47,8 +52,14 @@ public class Catagory extends AppCompatActivity {
             finish();
         });
 
-        fetchEvent();
-
+        if(checkNetworkConnection()){
+            fetchEvent();
+        }
+        else{
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(view -> onBackPressed());
 
     }
 
@@ -114,5 +125,10 @@ public class Catagory extends AppCompatActivity {
     void searchActivity(){
         Intent intent = new Intent(this, search.class);
         startActivity(intent);
+    }
+    public boolean checkNetworkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
     }
 }

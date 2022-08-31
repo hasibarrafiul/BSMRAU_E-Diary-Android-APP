@@ -3,9 +3,15 @@ package com.tostechllc.bsmrau_e_diary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,6 +28,7 @@ public class news extends AppCompatActivity {
     public static final String FETCH_NEWS = "https://tostechllc.com/android/getNews.php";
     ArrayList<listedNews> arrayListNews;
     customNewsAdapter customNewsAdapter;
+    ImageButton back, home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +39,22 @@ public class news extends AppCompatActivity {
 
         arrayListNews = new ArrayList<>();
 
-        fetchNews();
+        if(checkNetworkConnection()){
+            fetchNews();
+        }
+        else{
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+
+        home = findViewById(R.id.btn_home);
+        home.setOnClickListener(view -> {
+            Intent intent = new Intent(this, home.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);;
+            startActivity(intent);
+            finish();
+        });
+
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(view -> onBackPressed());
 
     }
 
@@ -96,5 +118,10 @@ public class news extends AppCompatActivity {
         customNewsAdapter = new customNewsAdapter(this,arrayListNews);
         newsListView.setAdapter(customNewsAdapter);
         customNewsAdapter.notifyDataSetChanged();
+    }
+    public boolean checkNetworkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
     }
 }

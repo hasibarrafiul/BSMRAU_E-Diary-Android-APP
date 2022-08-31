@@ -3,9 +3,15 @@ package com.tostechllc.bsmrau_e_diary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,6 +28,7 @@ public class notices extends AppCompatActivity {
     ArrayList<listedNotice> arrayListNotice;
     ListView noticeListView;
     customNoticeAdapter customNoticeAdapter;
+    ImageButton back, home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +39,21 @@ public class notices extends AppCompatActivity {
 
         arrayListNotice = new ArrayList<>();
 
-        fetchNotice();
+        if(checkNetworkConnection()){
+            fetchNotice();
+        }
+        else{
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+        home = findViewById(R.id.btn_home);
+
+        home.setOnClickListener(view -> {
+            Intent intent = new Intent(this, home.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);;
+            startActivity(intent);
+            finish();
+        });
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(view -> onBackPressed());
 
     }
 
@@ -101,5 +122,10 @@ public class notices extends AppCompatActivity {
         customNoticeAdapter = new customNoticeAdapter(this,arrayListNotice);
         noticeListView.setAdapter(customNoticeAdapter);
         customNoticeAdapter.notifyDataSetChanged();
+    }
+    public boolean checkNetworkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
     }
 }

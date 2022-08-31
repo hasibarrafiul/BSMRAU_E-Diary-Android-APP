@@ -1,13 +1,19 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.CalendarView;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -29,6 +35,7 @@ public class CalenderView extends AppCompatActivity {
     ListView holidayListView;
     customHolidayAdapter customHolidayAdapter;
     ArrayList<holidayListView> arrayListHoliday;
+    ImageButton back, home;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,7 +49,19 @@ public class CalenderView extends AppCompatActivity {
         arrayListHoliday = new ArrayList<>();
         holidayListView = findViewById(R.id.holidayListView);
         emptyArraylist();
-        fetchHoliday();
+        if(checkNetworkConnection()){
+            fetchHoliday();
+        }
+        else{
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+        home = findViewById(R.id.btn_home);
+
+        home.setOnClickListener(view -> {
+            Intent intent = new Intent(this, home.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);;
+            startActivity(intent);
+            finish();
+        });
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
                             @Override
@@ -58,6 +77,8 @@ public class CalenderView extends AppCompatActivity {
                                 fetchHoliday();
                             }
                         });
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(view -> onBackPressed());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -185,6 +206,11 @@ public class CalenderView extends AppCompatActivity {
         customHolidayAdapter = new customHolidayAdapter(this,arrayListHoliday);
         holidayListView.setAdapter(customHolidayAdapter);
         customHolidayAdapter.notifyDataSetChanged();
+    }
+    public boolean checkNetworkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
     }
 }
 
