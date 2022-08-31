@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,6 +52,8 @@ public class customSearchAdapter extends BaseAdapter {
         TextView email = rowView.findViewById(R.id.tv_email);
         TextView officePhone = rowView.findViewById(R.id.tv_officePhone);
         ImageView image = rowView.findViewById(R.id.faculty_image);
+        Button call = rowView.findViewById(R.id.btn_call_search);
+        Button sendEmail = rowView.findViewById(R.id.btn_email_search);
 
         listedSearch listedSearch = arrayList.get(position);
 
@@ -64,11 +68,21 @@ public class customSearchAdapter extends BaseAdapter {
 
         Picasso.get().load(imagePath).resize(60,60).into(image);
 
-        rowView.setOnClickListener(new View.OnClickListener() {
+        call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 String temp = "tel: 0" + listedSearch.getMobilenumber();
+                intent.setData(Uri.parse(temp));
+
+                context.startActivity(intent);
+            }
+        });
+        sendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                String temp = "mailto:" + listedSearch.getEmail();
                 intent.setData(Uri.parse(temp));
 
                 context.startActivity(intent);

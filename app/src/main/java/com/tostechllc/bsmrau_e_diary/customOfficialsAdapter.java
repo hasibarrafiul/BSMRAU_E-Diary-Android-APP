@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,6 +52,8 @@ public class customOfficialsAdapter extends BaseAdapter {
         TextView email = rowView.findViewById(R.id.tv_email_officials);
         TextView officePhone = rowView.findViewById(R.id.tv_officePhone_officials);
         ImageView image = rowView.findViewById(R.id.officials_image);
+        Button call = rowView.findViewById(R.id.btn_call_officials);
+        Button sendEmail = rowView.findViewById(R.id.btn_email_officials);
 
         listedOfficials listedOfficials = arrayList.get(position);
 
@@ -65,7 +69,7 @@ public class customOfficialsAdapter extends BaseAdapter {
 
         Picasso.get().load(imagePath).resize(100,100).into(image);
 
-        rowView.setOnClickListener(new View.OnClickListener() {
+        call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
@@ -76,6 +80,16 @@ public class customOfficialsAdapter extends BaseAdapter {
             }
         });
 
+        sendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                String temp = "mailto:" + listedOfficials.getEmail();
+                intent.setData(Uri.parse(temp));
+
+                context.startActivity(intent);
+            }
+        });
 
         return rowView;
     }

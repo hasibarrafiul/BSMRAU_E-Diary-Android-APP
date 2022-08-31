@@ -1,11 +1,17 @@
 package com.tostechllc.bsmrau_e_diary;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,6 +31,7 @@ public class subCatagory extends AppCompatActivity {
     customSubCatagoryAdapter customSubCatagoryAdapter;
     String catagoryPrev, titlePrev;
     TextView title;
+    ImageButton back, home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +51,23 @@ public class subCatagory extends AppCompatActivity {
         title = findViewById(R.id.tv_title_subcategory);
         title.setText(titlePrev);
 
-        fetchEvent();
+        if(checkNetworkConnection()){
+            fetchEvent();
+        }
+        else{
+            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+
+        home = findViewById(R.id.btn_home);
+
+        home.setOnClickListener(view -> {
+            Intent intent = new Intent(this, home.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);;
+            startActivity(intent);
+            finish();
+        });
+
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(view -> onBackPressed());
 
     }
 
@@ -104,5 +127,10 @@ public class subCatagory extends AppCompatActivity {
         customSubCatagoryAdapter = new customSubCatagoryAdapter(this,arrayListSubCatagory);
         SubcatagoryListView.setAdapter(customSubCatagoryAdapter);
         customSubCatagoryAdapter.notifyDataSetChanged();
+    }
+    public boolean checkNetworkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
     }
 }

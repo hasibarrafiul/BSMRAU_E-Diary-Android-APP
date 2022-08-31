@@ -39,7 +39,7 @@ public class videos extends AppCompatActivity {
         arrayListVideos = new ArrayList<>();
 
         if(checkNetworkConnection()){
-            fetchFaculty();
+            fetchVideo();
         }
         else{
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
@@ -56,7 +56,7 @@ public class videos extends AppCompatActivity {
         back = findViewById(R.id.btn_back);
         back.setOnClickListener(view -> onBackPressed());
     }
-    public void fetchFaculty(){
+    public void fetchVideo(){
         @SuppressLint("StaticFieldLeak")
         class dbManager extends AsyncTask<String,Void,String>
         {
