@@ -45,9 +45,11 @@ public class Catagory extends AppCompatActivity {
 
         catagoryListView = findViewById(R.id.catagoryListView);
         home = findViewById(R.id.btn_home);
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(v->onBackPressed());
 
         home.setOnClickListener(view -> {
-            Intent intent = new Intent(this, home.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);;
+            Intent intent = new Intent(this, home.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity(intent);
             finish();
         });

@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class search extends AppCompatActivity {
     customSearchAdapter customSearchAdapter;
     EditText searchED;
     String searchValue = "";
+    ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,8 @@ public class search extends AppCompatActivity {
         searchED.requestFocus();
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(searchED, InputMethodManager.SHOW_IMPLICIT);
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(v->onBackPressed());
 
         searchED.addTextChangedListener(new TextWatcher(){
             public void afterTextChanged(Editable s) {}

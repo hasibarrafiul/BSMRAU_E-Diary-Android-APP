@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -85,7 +86,12 @@ public class customSearchAdapter extends BaseAdapter {
                 String temp = "mailto:" + listedSearch.getEmail();
                 intent.setData(Uri.parse(temp));
 
-                context.startActivity(intent);
+                try{
+                    context.startActivity(intent);
+                }
+                catch(Exception e){
+                    Toast.makeText(context, "No Email App", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
