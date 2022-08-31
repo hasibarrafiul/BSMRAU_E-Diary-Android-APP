@@ -6,17 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".search">
 
+
+    <ImageButton android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back24px"
+        android:background="@null"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/seachEditText"
+        app:layout_constraintTop_toTopOf="@id/seachEditText"
+        app:layout_constraintBottom_toBottomOf="@id/seachEditText"
+        tools:ignore="InvalidId" />
+
     <EditText
         android:id="@+id/seachEditText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_10dp_blue"
-        android:layout_margin="12dp"
         android:textColor="@color/white"
-        android:textCursorDrawable="@color/white"
+        android:hint="Search Faculty and Officials Here..."
+        android:textCursorDrawable="@drawable/white_cursor_3dp"
+        android:layout_margin="12dp"
+        app:layout_constraintStart_toEndOf="@id/btn_back"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/search_listview"
+        />
 
     <ListView
         android:id="@+id/search_listview"

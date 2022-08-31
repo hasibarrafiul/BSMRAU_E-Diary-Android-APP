@@ -12,6 +12,7 @@
         android:id="@+id/faculty_image"
         android:layout_width="60dp"
         android:layout_height="80dp"
+        android:src="@drawable/ic_launcher_foreground"
         app:layout_constraintStart_toEndOf="@id/tv_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -132,5 +133,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/logo_officePhone"
         app:layout_constraintTop_toBottomOf="@+id/tv_email" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_buttons"
+        app:layout_constraintTop_toBottomOf="@id/tv_officePhone"
+        app:layout_constraintStart_toStartOf="@id/logo_username"
+        app:layout_constraintEnd_toEndOf="@id/tv_officePhone"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <Button android:id="@+id/btn_call_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_10dp_dark_blue"
+            app:backgroundTint="@null"
+            android:drawableRight="@drawable/phone24px"
+            android:text="Call"
+            android:layout_marginRight="4dp"
+            app:layout_constraintStart_toStartOf="@id/layout_buttons"
+            app:layout_constraintEnd_toStartOf="@id/btn_email_search"
+            />
+        <Button android:id="@+id/btn_email_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_10dp_dark_blue"
+            app:backgroundTint="@null"
+            android:drawableRight="@drawable/email24px"
+            android:text="Email"
+            android:layout_marginLeft="4dp"
+            app:layout_constraintEnd_toEndOf="@id/layout_buttons"
+            app:layout_constraintStart_toEndOf="@id/btn_call_search"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

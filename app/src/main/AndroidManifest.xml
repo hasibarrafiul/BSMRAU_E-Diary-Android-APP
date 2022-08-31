@@ -23,7 +23,9 @@
             android:exported="false" />
         <activity
             android:name=".Catagory"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true"
+            />
         <activity
             android:name=".subCatagory"
             android:exported="false" />
