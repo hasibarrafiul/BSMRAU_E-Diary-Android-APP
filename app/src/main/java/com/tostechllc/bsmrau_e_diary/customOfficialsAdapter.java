@@ -77,7 +77,12 @@ public class customOfficialsAdapter extends BaseAdapter {
                 String temp = "tel: 0" + listedOfficials.getMobilenumber();
                 intent.setData(Uri.parse(temp));
 
-                context.startActivity(intent);
+                try{
+                    context.startActivity(intent);
+                }
+                catch(Exception e){
+                    Toast.makeText(context, "No Phone App", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

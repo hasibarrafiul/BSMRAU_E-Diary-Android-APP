@@ -98,7 +98,7 @@ public class CalenderView extends AppCompatActivity {
             protected void onPostExecute(String data){
                 try {
 
-                    JSONObject  ja = new JSONObject(data);
+                    JSONObject ja = new JSONObject(data);
                     JSONObject response = ja.getJSONObject("response");
                     String holidays = response.getString("holidays");
 
